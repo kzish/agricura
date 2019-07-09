@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="croptypelist">
+        <item>@string/cropType1</item>
+        <item>@string/cropType2</item>
+        <item>@string/cropType3</item>
+        <item>@string/cropType4</item>
+        <item>@string/cropType5</item>
+        <item>@string/cropType6</item>
+        <item>@string/cropType7</item>
+    </string-array>
+</resources>

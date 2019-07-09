@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_branches"
+            android:icon="@drawable/ic_location_city_black_24dp"
+            android:title="Branches" />
+        <item
+            android:id="@+id/nav_new"
+            android:icon="@drawable/ic_news_list_bulleted"
+            android:title="News" />
+        <item
+            android:id="@+id/nav_products"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Products" />
+        <item
+            android:id="@+id/nav_calender"
+            android:icon="@drawable/ic_calendar"
+            android:title="Calendar" />
+        <item
+            android:id="@+id/nav_weather"
+            android:icon="@drawable/ic_weather"
+            android:title="Weather" />
+        <item
+            android:id="@+id/nav_productive"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="Productive Guidelines" />
+        <item
+            android:id="@+id/nav_income_statment"
+            android:icon="@drawable/ic_attach_money_black_24dp"
+            android:title="Income Statement" />
+        <item
+            android:id="@+id/nav_sales_team"
+            android:icon="@drawable/ic_person_sales"
+            android:title="Sales Team" />
+        <item
+            android:id="@+id/nav_my_acc"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="My Account" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_social_media"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Twitter" />
+            <item
+                android:id="@+id/nav_whatsapp"
+                android:icon="@drawable/ic_whatsapp"
+                android:title="Whatsapp Us" />
+        </menu>
+    </item>
+
+</menu>
