@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,11 +56,19 @@ public class SalesTeamFragment extends Fragment {
         DaoSession daoSession = App.getInstance().getDaoSession();
         salesTeamDao = daoSession.getSalesTeamDao();
 
-        addSalesTeam();
+        //addSalesTeam();
 
         salesTeamQuery = salesTeamDao.queryBuilder().build();
 
         salesTeamList =salesTeamQuery.list();
+
+        if(salesTeamList.size()<=0){
+            addSalesTeam();
+            salesTeamList =salesTeamQuery.list();
+
+        }else{
+            Log.i( "size", String.valueOf(salesTeamList.size()));
+        };
 
         salesRecycle = view.findViewById(R.id.recycle_sales);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());

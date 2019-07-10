@@ -51,7 +51,7 @@ public class SalesRepDetailsFragment extends Fragment {
         DaoSession daoSession = App.getInstance().getDaoSession();
         salesTeamDao = daoSession.getSalesTeamDao();
 
-        sName = view.findViewById(R.id.txtSalesRep);
+        sName = view.findViewById(R.id.txtSNameP);
         sBranch = view.findViewById(R.id.txtSBranch);
         sAddress = view.findViewById(R.id.txtSAdd);
         sEmail = view.findViewById(R.id.txtSEmail);
@@ -68,18 +68,25 @@ public class SalesRepDetailsFragment extends Fragment {
         List<SalesTeam> salesRepDetails = salesTeamQuery.list();
 
         String screenTittle = "";
+        String branch = "";
+        String email = "";
+        String telephone = "";
+        String address = "";
 
         screenTittle = salesRepDetails.get(0).salesPerson;
+        branch = salesRepDetails.get(0).salesBranch;
+        email = salesRepDetails.get(0).salesEmail;
+        telephone = salesRepDetails.get(0).salesPersonTel;
 
 
 
         getActivity().setTitle(screenTittle);
 
-        sName.setText(salesRepDetails.get(0).getSalesPerson());
-        /*sBranch.setText(salesRepDetails.get(0).getSalesBranch());
+        sName.setText(screenTittle);
+        sBranch.setText(branch);
         //sAddress.setText(salesRepDetails.get(0).sa);
-        sTel.setText(salesRepDetails.get(0).getSalesPersonTel());
-        sEmail.setText(salesRepDetails.get(0).getSalesEmail());*/
+        sTel.setText(telephone);
+        sEmail.setText(email);
 
 
 

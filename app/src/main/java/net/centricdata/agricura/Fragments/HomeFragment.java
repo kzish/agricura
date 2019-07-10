@@ -44,9 +44,9 @@ public class HomeFragment extends Fragment {
         mybranch = view.findViewById(R.id.card_branches);
         news = view.findViewById(R.id.card_news);
         calendar = view.findViewById(R.id.card_calenda);
-        our_products = view.findViewById(R.id.card_productive);
+        our_products = view.findViewById(R.id.card_products);
         weather = view.findViewById(R.id.nav_weather);
-        income_sta = view.findViewById(R.id.card_productive);
+        income_sta = view.findViewById(R.id.card_income);
         sales = view.findViewById(R.id.card_sales);
         productive = view.findViewById(R.id.card_productive);
         my_acc = view.findViewById(R.id.card_myaccc);

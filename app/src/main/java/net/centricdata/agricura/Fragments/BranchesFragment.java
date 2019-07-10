@@ -68,6 +68,7 @@ public class BranchesFragment extends Fragment {
 
         if(branchesList.size()<=0){
             addBranches();
+            branchesList = branchesQuery.list();
 
         }else{
             Log.i( "size", String.valueOf(branchesList.size()));
