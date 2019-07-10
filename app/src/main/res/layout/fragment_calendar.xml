@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.CalendarFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/calendarView"
+    <com.riontech.calendar.CustomCalendar
+        android:id="@+id/customCalendar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="#0FAC17"
-        />
+        android:layout_height="match_parent"
+        app:endMonth="12"
+        app:endYear="2020"
+        app:startMonth="01"
+        app:startYear="2016" />
 
 </FrameLayout>

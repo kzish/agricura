@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:tweet-ui:3.1.1'
-    implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
+    implementation 'com.riontech:calendar:1.0'
     implementation 'org.greenrobot:greendao:3.2.2' // add library
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
     testImplementation 'junit:junit:4.12'

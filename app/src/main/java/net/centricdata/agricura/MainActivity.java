@@ -25,6 +25,7 @@ import net.centricdata.agricura.Fragments.BranchesFragment;
 import net.centricdata.agricura.Fragments.CalendarFragment;
 import net.centricdata.agricura.Fragments.HomeFragment;
 import net.centricdata.agricura.Fragments.IncomeStatementFragment;
+import net.centricdata.agricura.Fragments.MyAccountFragment;
 import net.centricdata.agricura.Fragments.NewsFragment;
 import net.centricdata.agricura.Fragments.ProductiveGuidelinesFragment;
 import net.centricdata.agricura.Fragments.ProductsFragment;
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity
 
     BranchesDao branchesDao;
     Query<Branches> branchesQuery;
-
 
 
 
@@ -287,6 +287,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case  R.id.nav_products:
                 fragment =new ProductsFragment();
+                break;
+            case R.id.nav_my_acc:
+                fragment =new MyAccountFragment();
                 break;
             case  R.id.nav_social_media:
                 fragment =new TwitterFragment();
