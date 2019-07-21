@@ -50,4 +50,13 @@
         <item>Groundnuts</item>
     </string-array>
 
+    <string name="main">climate:</string>
+    <string name="city">Harare</string>
+    <string name="description">Description:</string>
+    <string name="temperature">0.0°c</string>
+    <string name="humidity">Humidity:</string>
+    <string name="hint">Enter the city name</string>
+    <string name="city_key">city_key</string>
+    <string name="getLocation">Get Location</string>
+
 </resources>

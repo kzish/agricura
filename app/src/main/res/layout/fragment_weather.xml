@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/weekly_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.WeatherFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_margin="5dp"
+            android:text="Weather Forecast for Agricura"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_margin="5dp"
+            android:text="Your Location Coordinates"
+            android:hint="location"
+            android:textSize="10dp"
+            android:id="@+id/show_location"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/getLocation"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_horizontal"
+            android:text="@string/getLocation"
+            android:textSize="10dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/weekRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="374dp" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
