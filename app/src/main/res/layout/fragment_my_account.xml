@@ -1,98 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.MyAccountFragment"
+    tools:showIn="@layout/fragment_my_account"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".Fragments.MyAccountFragment"
-        tools:showIn="@layout/fragment_my_account">
+        android:layout_height="wrap_content"
+        android:text="User personalisation to save and update you crop preferences..."
+        android:textSize="20sp"/>
 
-
-        <!--Put form controls here-->
-
-        <TextView
-            android:id="@+id/TextViewTitle"
-            android:layout_width="0dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/pTitle"
-            android:textSize="10pt"
-            android:layout_gravity="center"
-            app:layout_constraintStart_toStartOf="@+id/TextViewCropPreference"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </TextView>
-
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Names"
+        android:layout_marginVertical="8dp">
         <EditText
-            android:id="@+id/EditTextFullname"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/txtFullname"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextViewTitle"/>
+            android:id="@+id/EditTextFullname"/>
+    </android.support.design.widget.TextInputLayout>
 
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mobile Number">
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/EditTextMobile"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/txtMobile"
-            android:inputType="phone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextFullname"/>
+            android:inputType="phone"/>
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginVertical="8dp">
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/EditTextEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/txtEmail"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextMobile"/>
+            android:inputType="textEmailAddress"/>
+    </android.support.design.widget.TextInputLayout>
 
-        <TextView
-            android:id="@+id/TextViewCropPreference"
-            android:layout_width="356dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/cropPreferenceType"
-            android:textSize="10pt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextEmail"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crop Preference Types:" />
 
+    <CheckBox
+        android:id="@+id/chkMaize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Maize" />
 
-        <Spinner
-            android:id="@+id/SpinnerCropType"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:entries="@array/croptypelist"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextViewCropPreference"/>
+    <CheckBox
+        android:id="@+id/chkSugarCane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Sugar Cane" />
 
-        <Button
-            android:id="@+id/ButtonSendFeedback"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:onClick="sendDetails"
-            android:text="@string/btnSendDetails"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SpinnerCropType"
-            app:layout_constraintVertical_bias="0.367"/>
+    <CheckBox
+        android:id="@+id/chkSoyaBean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Soya Beans" />
 
-    </android.support.constraint.ConstraintLayout>
+    <CheckBox
+        android:id="@+id/chkTobacco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Tobacco" />
+
+    <CheckBox
+        android:id="@+id/chkTea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Tea" />
+
+    <CheckBox
+        android:id="@+id/chkMacademia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Macademia" />
+
+    <CheckBox
+        android:id="@+id/chkAvocado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Avocado" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="By setting preferences to populate your calendar with relevant events"
+
+        android:clickable="true"
+        android:layout_marginVertical="32dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Details"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/tw__solid_white"
+        android:id="@+id/btn_saveFormDetails"/>
+
+</LinearLayout>
