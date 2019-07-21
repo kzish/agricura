@@ -31,4 +31,23 @@
     <string name="cropType6">Macademia</string>
     <string name="cropType7">Avocado</string>
 
+    <string-array name="pdfNames">
+        <item>Potatoes</item>
+        <item>Tomatoes</item>
+        <item>Cabbage</item>
+        <item>Butternuts</item>
+        <item>Paprika</item>
+        <item>Wheat</item>
+        <item>Water Melons</item>
+        <item>Tobacco Lands</item>
+        <item>Soya Bean</item>
+        <item>Sorghum</item>
+        <item>Onion</item>
+        <item>Butternuts</item>
+        <item>Carrot</item>
+        <item>Cotton</item>
+        <item>Cucumbers</item>
+        <item>Groundnuts</item>
+    </string-array>
+
 </resources>

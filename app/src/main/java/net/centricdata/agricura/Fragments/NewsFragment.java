@@ -3,12 +3,14 @@ package net.centricdata.agricura.Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -77,6 +79,27 @@ public class NewsFragment extends Fragment {
 
         myRecycleView.setAdapter(adapter);
         getData();
+
+        myRecycleView.addOnItemTouchListener(
+                new RecyclerView.OnItemTouchListener() {
+                    @Override
+                    public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+
+
+
+                    }
+
+                    @Override
+                    public void onRequestDisallowInterceptTouchEvent(boolean b) {
+
+                    }
+                }
+        );
 
 
         return  view;

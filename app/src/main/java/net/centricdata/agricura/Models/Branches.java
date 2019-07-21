@@ -18,13 +18,20 @@ public class Branches {
     public String branchTelephone;
     public String branchContact;
 
-    @Generated(hash = 1065851642)
-    public Branches(Long branchID, String branchName, String branchAddress, String branchTelephone, String branchContact) {
+
+
+    public double branchLatitude;
+    public double branchLongitude;
+
+    @Generated(hash = 1902870025)
+    public Branches(Long branchID, String branchName, String branchAddress, String branchTelephone, String branchContact, double branchLatitude, double branchLongitude) {
         this.branchID = branchID;
         this.branchName = branchName;
         this.branchAddress = branchAddress;
         this.branchTelephone = branchTelephone;
         this.branchContact = branchContact;
+        this.branchLatitude = branchLatitude;
+        this.branchLongitude = branchLongitude;
     }
 
     public Long getBranchID() {
@@ -65,5 +72,21 @@ public class Branches {
 
     public void setBranchContact(String branchContact) {
         this.branchContact = branchContact;
+    }
+
+    public double getBranchLatitude() {
+        return branchLatitude;
+    }
+
+    public void setBranchLatitude(double branchLatitude) {
+        this.branchLatitude = branchLatitude;
+    }
+
+    public double getBranchLongitude() {
+        return branchLongitude;
+    }
+
+    public void setBranchLongitude(double branchLongitude) {
+        this.branchLongitude = branchLongitude;
     }
 }

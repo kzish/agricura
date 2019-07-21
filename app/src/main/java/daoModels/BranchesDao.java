@@ -29,6 +29,8 @@ public class BranchesDao extends AbstractDao<Branches, Long> {
         public final static Property BranchAddress = new Property(2, String.class, "branchAddress", false, "BRANCH_ADDRESS");
         public final static Property BranchTelephone = new Property(3, String.class, "branchTelephone", false, "BRANCH_TELEPHONE");
         public final static Property BranchContact = new Property(4, String.class, "branchContact", false, "BRANCH_CONTACT");
+        public final static Property BranchLatitude = new Property(5, double.class, "branchLatitude", false, "BRANCH_LATITUDE");
+        public final static Property BranchLongitude = new Property(6, double.class, "branchLongitude", false, "BRANCH_LONGITUDE");
     }
 
 
@@ -48,7 +50,9 @@ public class BranchesDao extends AbstractDao<Branches, Long> {
                 "\"BRANCH_NAME\" TEXT," + // 1: branchName
                 "\"BRANCH_ADDRESS\" TEXT," + // 2: branchAddress
                 "\"BRANCH_TELEPHONE\" TEXT," + // 3: branchTelephone
-                "\"BRANCH_CONTACT\" TEXT);"); // 4: branchContact
+                "\"BRANCH_CONTACT\" TEXT," + // 4: branchContact
+                "\"BRANCH_LATITUDE\" REAL NOT NULL ," + // 5: branchLatitude
+                "\"BRANCH_LONGITUDE\" REAL NOT NULL );"); // 6: branchLongitude
     }
 
     /** Drops the underlying database table. */
@@ -85,6 +89,8 @@ public class BranchesDao extends AbstractDao<Branches, Long> {
         if (branchContact != null) {
             stmt.bindString(5, branchContact);
         }
+        stmt.bindDouble(6, entity.getBranchLatitude());
+        stmt.bindDouble(7, entity.getBranchLongitude());
     }
 
     @Override
@@ -115,6 +121,8 @@ public class BranchesDao extends AbstractDao<Branches, Long> {
         if (branchContact != null) {
             stmt.bindString(5, branchContact);
         }
+        stmt.bindDouble(6, entity.getBranchLatitude());
+        stmt.bindDouble(7, entity.getBranchLongitude());
     }
 
     @Override
@@ -129,7 +137,9 @@ public class BranchesDao extends AbstractDao<Branches, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // branchName
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // branchAddress
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // branchTelephone
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // branchContact
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // branchContact
+            cursor.getDouble(offset + 5), // branchLatitude
+            cursor.getDouble(offset + 6) // branchLongitude
         );
         return entity;
     }
@@ -141,6 +151,8 @@ public class BranchesDao extends AbstractDao<Branches, Long> {
         entity.setBranchAddress(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setBranchTelephone(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setBranchContact(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setBranchLatitude(cursor.getDouble(offset + 5));
+        entity.setBranchLongitude(cursor.getDouble(offset + 6));
      }
     
     @Override

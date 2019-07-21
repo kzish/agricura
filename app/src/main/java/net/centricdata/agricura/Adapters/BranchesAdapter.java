@@ -66,6 +66,7 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
 
                         Bundle bundle = new Bundle();
                         bundle.putString("branchID" ,branchKey );
+                        //bundle.putDouble("lat");
 
                         Fragment fragment = new BranchDetailsFragment();
 

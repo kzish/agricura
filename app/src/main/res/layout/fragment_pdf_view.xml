@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.IncomeStatementFragment">
+    tools:context=".Fragments.PdfViewFragment"
+    android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Income Statement" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

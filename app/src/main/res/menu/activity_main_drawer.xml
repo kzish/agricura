@@ -31,15 +31,15 @@
         <item
             android:id="@+id/nav_productive"
             android:icon="@drawable/ic_view_list_black_24dp"
-            android:title="Productive Guidelines" />
+            android:title="Crop Guidelines" />
         <item
             android:id="@+id/nav_income_statment"
             android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Income Statement" />
-        <item
+        <!--<item
             android:id="@+id/nav_sales_team"
             android:icon="@drawable/ic_person_sales"
-            android:title="Sales Team" />
+            android:title="Sales Team" />-->
         <item
             android:id="@+id/nav_my_acc"
             android:icon="@drawable/ic_account_circle_black_24dp"
@@ -56,6 +56,10 @@
                 android:id="@+id/nav_whatsapp"
                 android:icon="@drawable/ic_whatsapp"
                 android:title="Whatsapp Us" />
+            <item
+                android:id="@+id/nav_contact_us"
+                android:icon="@drawable/ic_whatsapp"
+                android:title="Contact Us" />
         </menu>
     </item>
 

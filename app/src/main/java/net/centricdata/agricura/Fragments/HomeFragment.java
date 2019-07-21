@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
     CardView productive;
     CardView sales;
     CardView my_acc;
-    //CardView branches;
+    CardView my_weather;
 
 
     public HomeFragment() {
@@ -43,11 +43,11 @@ public class HomeFragment extends Fragment {
 
         mybranch = view.findViewById(R.id.card_branches);
         news = view.findViewById(R.id.card_news);
-        calendar = view.findViewById(R.id.card_calenda);
+        calendar = view.findViewById(R.id.card_calendar);
         our_products = view.findViewById(R.id.card_products);
         weather = view.findViewById(R.id.nav_weather);
         income_sta = view.findViewById(R.id.card_income);
-        sales = view.findViewById(R.id.card_sales);
+        my_weather = view.findViewById(R.id.card_weather);
         productive = view.findViewById(R.id.card_productive);
         my_acc = view.findViewById(R.id.card_myaccc);
 
@@ -143,13 +143,13 @@ public class HomeFragment extends Fragment {
                 }
         );
 
-        sales.setOnClickListener(
+        my_weather.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Bundle bundle = new Bundle();
 
-                        Fragment fragment = new SalesTeamFragment();
+                        Fragment fragment = new WeatherFragment();
 
                         fragment.setArguments(bundle);
 
@@ -204,6 +204,24 @@ public class HomeFragment extends Fragment {
                         Bundle bundle = new Bundle();
 
                         Fragment fragment = new IncomeStatementFragment();
+
+                        fragment.setArguments(bundle);
+
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.content_main, fragment);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                    }
+                }
+        );
+
+        my_acc.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Bundle bundle = new Bundle();
+
+                        Fragment fragment = new MyAccountFragment();
 
                         fragment.setArguments(bundle);
 

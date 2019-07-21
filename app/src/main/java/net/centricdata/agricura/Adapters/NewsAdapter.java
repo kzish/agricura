@@ -29,6 +29,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     private Context ctx;
     private List<News> newsList;
 
+    public String headlines = "";
+
     public NewsAdapter(Context ctx, List<News> newsList) {
         this.ctx = ctx;
         this.newsList = newsList;
@@ -47,13 +49,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsViewHolder newsViewHolder, int position) {
+    public void onBindViewHolder(@NonNull NewsViewHolder newsViewHolder, final int position) {
 
         newsViewHolder.nHeadline.setText(newsList.get(position).getNewsHeadline());
         final int newsId = newsList.get(position).getNewsId();
         newsViewHolder.nDetails.setText(newsList.get(position).getNewsDetails());
         newsViewHolder.nDate.setText(newsList.get(position).getNewsDatePosted());
         String img = newsList.get(position).getNewsImageUrl();
+
+        headlines = newsList.get(position).getNewsHeadline();
 
         Picasso.with(ctx)
                 .load(img)
@@ -73,10 +77,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
                         //Log.e("position", String.valueOf(position));
                         final  String branchKey = String.valueOf(newsId)  ;
-                        Log.e("branchID", branchKey);
+                        Log.e("branchID", String.valueOf(position));
 
                         Bundle bundle = new Bundle();
-                        bundle.putString("branchID" ,branchKey );
+                        bundle.putString("branchID" ,headlines );
 
                         Fragment fragment = new NewsDetailsFragment();
 

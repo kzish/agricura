@@ -1,6 +1,8 @@
 package net.centricdata.agricura;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -19,10 +22,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import net.centricdata.agricura.Fragments.BranchesFragment;
 import net.centricdata.agricura.Fragments.CalendarFragment;
+import net.centricdata.agricura.Fragments.ContactUsFragment;
 import net.centricdata.agricura.Fragments.HomeFragment;
 import net.centricdata.agricura.Fragments.IncomeStatementFragment;
 import net.centricdata.agricura.Fragments.MyAccountFragment;
@@ -267,9 +273,9 @@ public class MainActivity extends AppCompatActivity
             case  R.id.nav_weather:
                 fragment =new WeatherFragment();
                 break;
-            case  R.id.nav_sales_team:
+            /*case  R.id.nav_sales_team:
                 fragment =new SalesTeamFragment();
-                break;
+                break;*/
             case  R.id.nav_productive:
                 fragment =new ProductiveGuidelinesFragment();
                 break;
@@ -292,10 +298,15 @@ public class MainActivity extends AppCompatActivity
                 fragment =new MyAccountFragment();
                 break;
             case  R.id.nav_social_media:
+                dataWarning();
+
                 fragment =new TwitterFragment();
                 break;
             case  R.id.nav_whatsapp:
                 whatsappUs();
+                break;
+            case R.id.nav_contact_us:
+                fragment = new ContactUsFragment();
                 break;
 
         }
@@ -312,9 +323,57 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
     }
 
+    private void dataWarning() {
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_twitter_warning, null);
+        CheckBox mCheckBox = mView.findViewById(R.id.checkBoxTwit);
+        mBuilder.setTitle("Data Warning!");
+        mBuilder.setMessage("Opening Twitter may consume your data");
+        mBuilder.setView(mView);
+        mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+        mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    storeDialogStatus(true);
+                }else{
+                    storeDialogStatus(false);
+                }
+            }
+        });
+
+        if(getDialogStatus()){
+            mDialog.hide();
+        }else{
+            mDialog.show();
+        }
+
+    }
+
+    private void storeDialogStatus(boolean isChecked){
+        SharedPreferences mSharedPreferences = getSharedPreferences("CheckItem", MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.putBoolean("item", isChecked);
+        mEditor.apply();
+    }
+
+    private boolean getDialogStatus(){
+        SharedPreferences mSharedPreferences = getSharedPreferences("CheckItem", MODE_PRIVATE);
+        return mSharedPreferences.getBoolean("item", false);
+    }
+
     private void whatsappUs() {
 
-        String contact = "+263 773406575"; // use country code with your phone number
+        String contact = "+263 7713384616"; // use country code with your phone number
         String url = "https://api.whatsapp.com/send?phone=" + contact;
         try {
             PackageManager pm = getApplicationContext().getPackageManager();
