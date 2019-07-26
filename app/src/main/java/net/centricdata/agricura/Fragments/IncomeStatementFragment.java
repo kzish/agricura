@@ -24,11 +24,7 @@ public class IncomeStatementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().setTitle("Income Statement");
-        View view = inflater.inflate(R.layout.fragment_income_statement, container, false);
-
-
-        return view;
+        return inflater.inflate(R.layout.fragment_income_statement2, container, false);
     }
 
 }
