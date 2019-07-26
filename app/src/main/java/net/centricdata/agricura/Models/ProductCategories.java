@@ -46,8 +46,6 @@ public class ProductCategories {
         productCategories.add(new ProductCategories("Pesticides","For killing pests", "pesticide"));
         productCategories.add(new ProductCategories("Insecticides","For killing insects", "insecticide"));
         productCategories.add(new ProductCategories("Herbicides","For killing herbs", "herbicide"));
-
-        /*
         productCategories.add(new ProductCategories("Fumigants","For killing pests", "fumigant"));
         productCategories.add(new ProductCategories("Bait","For killing insects", "bait"));
         productCategories.add(new ProductCategories("Accaricides","For killing herbs", "accaracide"));
