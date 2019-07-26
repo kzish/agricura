@@ -126,7 +126,7 @@ public class BranchDetailsFragment extends Fragment {
 
         bName.setText(branchesNameDetail.get(0).getBranchName());
         bAddress.setText(branchesNameDetail.get(0).getBranchAddress());
-        bEmail.setText(branchesNameDetail.get(0).getBranchTelephone());
+        bEmail.setText("agricura@agricura.co.zw");
         longitude = branchesNameDetail.get(0).branchLongitude;
         latitude = branchesNameDetail.get(0).branchLatitude;
         bPhone = branchesNameDetail.get(0).branchTelephone;

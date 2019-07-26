@@ -107,13 +107,13 @@ public class BranchesFragment extends Fragment {
         branchesDao.insert(myBranches);
         //Log.d("dataDB","Inserted new note, ID: " + myBranches.getBranchID() + myBranches.getBranchName() );
 
-        myBranches = new Branches();
+       /* myBranches = new Branches();
         myBranches.setBranchName("Norton");
         myBranches.setBranchAddress("Norton, Zimbabwe");
         myBranches.setBranchLatitude(-17.878060);
         myBranches.setBranchLongitude(30.676410);
         myBranches.setBranchTelephone("0772407879");
-        branchesDao.insert(myBranches);
+        branchesDao.insert(myBranches);*/
 
         myBranches = new Branches();
         myBranches.setBranchName("Glendale");
@@ -125,90 +125,90 @@ public class BranchesFragment extends Fragment {
 
         myBranches = new Branches();
         myBranches.setBranchName("Bindura");
-        myBranches.setBranchAddress("No. 758 TM Area, Bindura, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0773424728");
+        myBranches.setBranchAddress("49 Robert Mugabe Way, Bindura, Zimbabwe");
+        myBranches.setBranchLatitude(-17.308309);
+        myBranches.setBranchLongitude(31.335141);
+        myBranches.setBranchTelephone("0777170565");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Marondera");
         myBranches.setBranchAddress("No. 45 Chicago Drive, Marondera, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-18.185628);
+        myBranches.setBranchLongitude(31.537310);
         myBranches.setBranchTelephone("0772587350");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Shamva");
-        myBranches.setBranchAddress("Shamva, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0772407879");
+        myBranches.setBranchAddress("36 Wadzanai Street, Shamva, Zimbabwe");
+        myBranches.setBranchLatitude(-17.297546);
+        myBranches.setBranchLongitude(31.568438);
+        myBranches.setBranchTelephone("0772594738");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Mvurwi");
         myBranches.setBranchAddress("No. 23 Hands worth township, Mvurwi, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-17.031867);
+        myBranches.setBranchLongitude(30.850957);
         myBranches.setBranchTelephone("0772848149");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Chegutu");
         myBranches.setBranchAddress("No. 26 Abercon Street, Chegutu, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0772884310");
+        myBranches.setBranchLatitude(-18.132765);
+        myBranches.setBranchLongitude(30.143719);
+        myBranches.setBranchTelephone("0712799029");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Chinhoyi");
         myBranches.setBranchAddress("No. 14 Park Street, Chinhoyi, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-17.360065);
+        myBranches.setBranchLongitude(30.199351);
         myBranches.setBranchTelephone("0772556781");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Kadoma");
         myBranches.setBranchAddress("No. 2580 J. Tongogara Road, Kadoma, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0772884310");
+        myBranches.setBranchLatitude(-18.348644);
+        myBranches.setBranchLongitude(29.910354);
+        myBranches.setBranchTelephone("0773541388");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Mt Darwin");
         myBranches.setBranchAddress("No. 109 Hospital Road, Mt Darwin, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-16.775939);
+        myBranches.setBranchLongitude(31.579448);
         myBranches.setBranchTelephone("0772725819");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Guruve");
         myBranches.setBranchAddress("No. 82 Guruve Growth Point,Guruve, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-16.659591);
+        myBranches.setBranchLongitude(30.698039);
         myBranches.setBranchTelephone("0732620366");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Mhangura");
-        myBranches.setBranchAddress("No. 26 Abercon Street, Mhangura, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchAddress("49 Chebanga Rd, Mhangura, Zimbabwe");
+        myBranches.setBranchLatitude(-16.89685);
+        myBranches.setBranchLongitude(30.1515909);
         myBranches.setBranchTelephone("0773085594");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Karoi");
-        myBranches.setBranchAddress("No. 316 Industrial Site, Karoi, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0712119463");
+        myBranches.setBranchAddress("116 Industrial Site, Karoi, Zimbabwe");
+        myBranches.setBranchLatitude(-16.819611);
+        myBranches.setBranchLongitude(29.690877);
+        myBranches.setBranchTelephone("0772585898");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
@@ -222,41 +222,57 @@ public class BranchesFragment extends Fragment {
         myBranches = new Branches();
         myBranches.setBranchName("Mutare");
         myBranches.setBranchAddress("No. 13 Chipanda Street, Murare, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-18.9735667);
+        myBranches.setBranchLongitude(32.6596313);
         myBranches.setBranchTelephone("0773427570");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Masvingo");
         myBranches.setBranchAddress("No. 46 Greenfields Road, Masvingo, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-20.0729395);
+        myBranches.setBranchLongitude(30.8085373);
         myBranches.setBranchTelephone("0775498800");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Chipinge");
         myBranches.setBranchAddress("No. 326 Gaza Eastern Road, Chipinge, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-20.1915765);
+        myBranches.setBranchLongitude(32.6170626);
         myBranches.setBranchTelephone("0717996673");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Bulawayo");
         myBranches.setBranchAddress("No. 60 George Silundika Avenue, Bulawayo, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
+        myBranches.setBranchLatitude(-20.149834);
+        myBranches.setBranchLongitude(28.587359);
         myBranches.setBranchTelephone("0772407879");
+        branchesDao.insert(myBranches);
+
+        myBranches = new Branches();
+        myBranches.setBranchName("Gweru");
+        myBranches.setBranchAddress("50 Robert Mugabe Way, Gweru, Zimbabwe");
+        myBranches.setBranchLatitude(-19.451607);
+        myBranches.setBranchLongitude(29.815628);
+        myBranches.setBranchTelephone("0773756706");
+        branchesDao.insert(myBranches);
+
+        myBranches = new Branches();
+        myBranches.setBranchName("Harare Street");
+        myBranches.setBranchAddress("58 Harare Street, Harare, Zimbabwe");
+        myBranches.setBranchLatitude(-17.838790);
+        myBranches.setBranchLongitude(31.041263);
+        myBranches.setBranchTelephone("0773443017");
         branchesDao.insert(myBranches);
 
         myBranches = new Branches();
         myBranches.setBranchName("Chiredzi");
         myBranches.setBranchAddress("No. 355 Chilonga Drive, Chiredzi, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0772674050");
+        myBranches.setBranchLatitude(-21.0398425);
+        myBranches.setBranchLongitude(31.6573619);
+        myBranches.setBranchTelephone("0713011934");
         branchesDao.insert(myBranches);
     }
 
