@@ -20,7 +20,7 @@
             android:layout_marginLeft="@dimen/common_20_dp"
             android:layout_marginTop="@dimen/common_20_dp"
             android:layout_marginRight="@dimen/common_20_dp"
-            android:src="@drawable/cat_1" />
+            android:src="@drawable/insecticide" />
 
         <TextView
             android:id="@+id/txtProductName"
