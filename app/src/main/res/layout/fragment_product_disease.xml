@@ -22,7 +22,7 @@
             android:layout_marginLeft="@dimen/common_20_dp"
             android:layout_marginTop="@dimen/common_20_dp"
             android:layout_marginRight="@dimen/common_20_dp"
-            android:src="@drawable/cat_1" />
+            android:src="@drawable/cutworm" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Pest or Disease"
+                android:text="Cutworm"
 
                 android:textColor="@android:color/black"
                 android:textSize="28sp" />
@@ -62,7 +62,7 @@
                 android:layout_marginTop="@dimen/common_40_dp"
                 android:layout_marginRight="0dp"
                 android:fontFamily="sans-serif-black"
-                android:text="500g, 1kg"
+                android:text="Crops"
                 android:textSize="18sp" />
 
 
@@ -78,7 +78,7 @@
                 android:layout_marginRight="0dp"
                 android:fontFamily="sans-serif-black"
                 android:maxWidth="250dp"
-                android:text="Contact and systemic for the control of various pests in various crops "
+                android:text="a moth caterpillar that lives in the upper layers of the soil and eats through the stems of young plants at ground level"
                 android:textSize="18sp" />
 
             <TextView
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/common_40_dp"
-                android:text="Quantities"
+                android:text="Affect"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
                 android:textSize="22sp" />
