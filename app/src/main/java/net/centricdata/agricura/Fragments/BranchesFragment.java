@@ -105,15 +105,6 @@ public class BranchesFragment extends Fragment {
         myBranches.setBranchLongitude(31.025923);
         myBranches.setBranchTelephone("0772407879");
         branchesDao.insert(myBranches);
-        //Log.d("dataDB","Inserted new note, ID: " + myBranches.getBranchID() + myBranches.getBranchName() );
-
-       /* myBranches = new Branches();
-        myBranches.setBranchName("Norton");
-        myBranches.setBranchAddress("Norton, Zimbabwe");
-        myBranches.setBranchLatitude(-17.878060);
-        myBranches.setBranchLongitude(30.676410);
-        myBranches.setBranchTelephone("0772407879");
-        branchesDao.insert(myBranches);*/
 
         myBranches = new Branches();
         myBranches.setBranchName("Glendale");

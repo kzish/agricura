@@ -74,7 +74,7 @@ public class Products {
 
         ArrayList<Products> products= new ArrayList<>();
 
-      products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
+        products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
         products.add(new Products("Insecticide","insecticide_image","Thiamethoxam 25WG","Contact and systemic for the control of various pests in various crops", "200g,500g" ));
         products.add(new Products("Insecticide","insecticide_image","Aphid Kill","Contact and systemic for the control of various pests in various crops", "100ml,200ml" ));
         products.add(new Products("Insecticide","insecticide_image","Avaunt (Indoxacarb) 15SC","Contact and systemic for the control of various pests in various crops", "200ml,500ml" ));
