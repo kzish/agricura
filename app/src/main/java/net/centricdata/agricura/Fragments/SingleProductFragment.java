@@ -48,6 +48,7 @@ public class SingleProductFragment extends Fragment {
         //productName= view.findViewById(R.id.txtProductName).toString();
         productNameTextView= view.findViewById(R.id.txtProductCatName);
         //productNameTextView.setText("Prozozo");
+        productNameTextView.setText("Prozozo");
 
         buttonPests= view.findViewById(R.id.btn1ProductPests);
 

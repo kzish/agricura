@@ -3,10 +3,13 @@ package net.centricdata.agricura.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,6 +23,7 @@ public class IncomeStatementFragment extends Fragment {
 
     private Spinner spinner;
     private String[] test = {"Macademia","Maize","Tea","Tobacco","Wheat"};
+    private Button buttonEditReturns;
     //private TextView currentEdit;
     public IncomeStatementFragment() {
         // Required empty public constructor
@@ -37,6 +41,23 @@ public class IncomeStatementFragment extends Fragment {
         ArrayAdapter<CharSequence> mSortAdapter = new ArrayAdapter<CharSequence>(getActivity(), android.R.layout.simple_spinner_item, test);
         mSortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(mSortAdapter);
+
+        buttonEditReturns = (Button) view.findViewById(R.id.btn_EnterExpenses);
+
+        buttonEditReturns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //PD.passData(productName);
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                Fragment fragment=new IncomeFragment();
+
+                FragmentTransaction ft =  activity.getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_main, fragment);
+                ft.addToBackStack("income_statement");
+                ft.commit();
+            }
+        });
+
         return view;
 
     }

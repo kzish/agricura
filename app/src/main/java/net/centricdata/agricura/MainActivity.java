@@ -28,6 +28,7 @@ import net.centricdata.agricura.Fragments.BranchesFragment;
 import net.centricdata.agricura.Fragments.CalendarFragment;
 import net.centricdata.agricura.Fragments.ContactUsFragment;
 import net.centricdata.agricura.Fragments.HomeFragment;
+import net.centricdata.agricura.Fragments.IncomeStatementFragment;
 import net.centricdata.agricura.Fragments.MyAccountFragment;
 import net.centricdata.agricura.Fragments.NewsFragment;
 import net.centricdata.agricura.Fragments.ProductCategoriesFragment;
@@ -283,7 +284,7 @@ public class MainActivity extends AppCompatActivity
                 fragment =new NewsFragment();
                 break;
             case  R.id.nav_income_statment:
-                //fragment =new IncomeStatementFragment();
+                fragment =new IncomeStatementFragment();
                 break;
             case  R.id.nav_branches:
                 fragment =new BranchesFragment();
