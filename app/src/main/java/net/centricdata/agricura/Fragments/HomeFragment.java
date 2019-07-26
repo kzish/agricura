@@ -185,7 +185,7 @@ public class HomeFragment extends Fragment {
                     public void onClick(View v) {
                         Bundle bundle = new Bundle();
 
-                        Fragment fragment = new ProductsFragment();
+                        Fragment fragment = new ProductCategoriesFragment();
 
                         fragment.setArguments(bundle);
 
