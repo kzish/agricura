@@ -40,7 +40,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/weekRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="374dp" />
+            android:layout_height="636dp" />
 
     </LinearLayout>
 

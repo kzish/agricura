@@ -1,15 +1,28 @@
 package net.centricdata.agricura.Fragments;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import net.centricdata.agricura.R;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +52,26 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         getActivity().setTitle("Home");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+/*
+        String content;
+        WeatherFetch myWeather = new WeatherFetch();
+        try {
+            content = myWeather.execute("https://openweathermap.org/data/2.5/weather?q=Harare&appid=b6907d289e10d714a6e88b30761fae22").get();
+
+            Log.i("contentData", content);
+            //JSON
+            JSONObject jsonObject = new JSONObject(content);
+            String weatherData = jsonObject.getString("weatherData");
+            Log.i("weatherData", weatherData);
+
+            JSONArray array = new JSONArray(weatherData);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+*/
 
 
         mybranch = view.findViewById(R.id.card_branches);
@@ -238,4 +271,39 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    class WeatherFetch extends AsyncTask<String, Void, String>{
+
+        @Override
+        protected String doInBackground(String... address) {
+
+            try {
+                URL url = new URL(address[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+                connection.connect();
+
+                InputStream is = connection.getInputStream();
+                InputStreamReader isr = new InputStreamReader(is);
+
+                int data = isr.read();
+                String content = "";
+                char ch;
+
+                while (data != 1){
+                    ch = (char) data;
+                    content = content + ch;
+                    data = isr.read();
+                }
+
+                return content;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
 }

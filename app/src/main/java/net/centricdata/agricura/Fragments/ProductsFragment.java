@@ -26,7 +26,7 @@ public class ProductsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_products, container, false);
 
-        getActivity().setTitle("Our Products");
+        getActivity().setTitle("Our Product");
 
 
         return  view;
