@@ -85,8 +85,6 @@ public class BranchesFragment extends Fragment {
 
 
 
-
-
         branchesRecycleview.setAdapter(branchesAdapter);
 
 

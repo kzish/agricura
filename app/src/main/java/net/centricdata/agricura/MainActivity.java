@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -30,13 +28,12 @@ import net.centricdata.agricura.Fragments.BranchesFragment;
 import net.centricdata.agricura.Fragments.CalendarFragment;
 import net.centricdata.agricura.Fragments.ContactUsFragment;
 import net.centricdata.agricura.Fragments.HomeFragment;
-import net.centricdata.agricura.Fragments.IncomeStatementFragment;
 import net.centricdata.agricura.Fragments.MyAccountFragment;
 import net.centricdata.agricura.Fragments.NewsFragment;
+import net.centricdata.agricura.Fragments.ProductCategoriesFragment;
+import net.centricdata.agricura.Fragments.ProductDiseaseFragment;
 import net.centricdata.agricura.Fragments.ProductiveGuidelinesFragment;
-import net.centricdata.agricura.Fragments.ProductsFragment;
-import net.centricdata.agricura.Fragments.SalesTeamFragment;
-import net.centricdata.agricura.Fragments.SocialMediaFragment;
+import net.centricdata.agricura.Fragments.SingleProductFragment;
 import net.centricdata.agricura.Fragments.TwitterFragment;
 import net.centricdata.agricura.Fragments.WeatherFragment;
 import net.centricdata.agricura.Models.Branches;
@@ -47,7 +44,7 @@ import daoModels.BranchesDao;
 import daoModels.DaoSession;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SingleProductFragment.PassData {
 
     BranchesDao branchesDao;
     Query<Branches> branchesQuery;
@@ -286,13 +283,13 @@ public class MainActivity extends AppCompatActivity
                 fragment =new NewsFragment();
                 break;
             case  R.id.nav_income_statment:
-                fragment =new IncomeStatementFragment();
+                //fragment =new IncomeStatementFragment();
                 break;
             case  R.id.nav_branches:
                 fragment =new BranchesFragment();
                 break;
             case  R.id.nav_products:
-                fragment =new ProductsFragment();
+                fragment =new ProductCategoriesFragment();
                 break;
             case R.id.nav_my_acc:
                 fragment =new MyAccountFragment();
@@ -387,4 +384,26 @@ public class MainActivity extends AppCompatActivity
             Log.e("whatsapp", String.valueOf(e));
         }
     }
+
+    @Override
+    public void passData(String productName) {
+        /*
+        String tag = "android:switcher:" + R.id.viewPager + ":" + 1;
+        FragmentTwo f = (FragmentTwo) getSupportFragmentManager().findFragmentByTag(tag);
+        f.displayReceivedData(message);
+    }
+         */
+
+
+        ProductDiseaseFragment fragment= (ProductDiseaseFragment) getSupportFragmentManager().findFragmentById(R.id.productDisease);
+        fragment.passDiseaseInfo(productName);
+
+    }
+
+    /*
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+    */
 }

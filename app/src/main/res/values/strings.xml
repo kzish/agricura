@@ -58,5 +58,8 @@
     <string name="hint">Enter the city name</string>
     <string name="city_key">city_key</string>
     <string name="getLocation">Get Location</string>
+    <string name="title_activity_income_statement">IncomeStatementActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 </resources>

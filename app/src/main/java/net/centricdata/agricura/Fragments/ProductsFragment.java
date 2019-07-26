@@ -3,17 +3,26 @@ package net.centricdata.agricura.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import net.centricdata.agricura.Adapters.ProductsAdapter;
+import net.centricdata.agricura.Models.Products;
 import net.centricdata.agricura.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ProductsFragment extends Fragment {
 
+    ArrayList<Products> products;
+    RecyclerView productsRecycler;
+    ProductsAdapter productsAdapter;
 
     public ProductsFragment() {
         // Required empty public constructor
@@ -26,7 +35,21 @@ public class ProductsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_products, container, false);
 
-        getActivity().setTitle("Our Products");
+        productsRecycler= view.findViewById(R.id.recycle_products);
+
+        getActivity().setTitle("Products");
+
+
+
+
+        // Initialize
+        products= Products.createProductsList();
+
+        ProductsAdapter adapter= new ProductsAdapter(products);
+
+        productsRecycler.setAdapter(adapter);
+
+        productsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
         return  view;
