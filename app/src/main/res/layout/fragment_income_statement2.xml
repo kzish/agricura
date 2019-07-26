@@ -1,14 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.IncomeStatementFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ScrollView android:id="@+id/ScrollIncome"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
+
+            <!-- TODO: Update blank fragment layout -->
+            <TextView
+                android:id="@+id/txtIncomeHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/common_30_dp"
+                android:layout_marginRight="@dimen/common_30_dp"
+                android:text="Income Statement\n(Expenses) "
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="28sp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/exp1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fertilizing Cost"
+                android:layout_marginVertical="8dp">
+
+                <EditText
+                    android:id="@+id/txtEditExp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/exp12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Irrigation Cost"
+                android:layout_marginVertical="8dp">
+
+                <EditText
+                    android:id="@+id/txtEditExp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/exp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weed and Pest Control"
+                android:layout_marginVertical="8dp">
+
+                <EditText
+                    android:id="@+id/txtEditExp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/exp4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harvesting Cost"
+                android:layout_marginVertical="8dp">
+
+                <EditText
+                    android:id="@+id/txtEditExp4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/exp5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Delivery Cost"
+                android:layout_marginVertical="8dp">
+
+                <EditText
+                    android:id="@+id/txtEditExp5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/exp6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Other Umnamed Costs"
+                android:layout_marginVertical="8dp">
+
+                <EditText
+                    android:id="@+id/txtEditExp6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <Spinner
+                    android:id="@+id/incomeExpDropDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/colorPrimary"
+                    android:spinnerMode="dropdown" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/imageButtonFullIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/incomebuttonimg" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_saveValues"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/common_20_dp"
+            android:background="@color/colorPrimary"
+            android:text="Save Values"
+            android:textColor="@color/tw__solid_white" />
+
+        <Button
+            android:id="@+id/btn_EnterExpenses"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/common_20_dp"
+            android:background="@color/colorPrimary"
+            android:text="Enter Income"
+            android:textColor="@color/tw__solid_white" />
+
+    </RelativeLayout>
+
+
+
 
 </FrameLayout>

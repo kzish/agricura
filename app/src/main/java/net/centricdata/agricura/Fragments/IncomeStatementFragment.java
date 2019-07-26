@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import net.centricdata.agricura.R;
 
@@ -15,6 +18,9 @@ import net.centricdata.agricura.R;
 public class IncomeStatementFragment extends Fragment {
 
 
+    private Spinner spinner;
+    private String[] test = {"Macademia","Maize","Tea","Tobacco","Wheat"};
+    //private TextView currentEdit;
     public IncomeStatementFragment() {
         // Required empty public constructor
     }
@@ -24,7 +30,15 @@ public class IncomeStatementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_income_statement2, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_income_statement2, container, false);
+        //currentEdit= (TextView) view.findViewById((R.id.txtIncomeDropDown));
+        spinner = (Spinner) view.findViewById(R.id.incomeExpDropDown);
+        ArrayAdapter<CharSequence> mSortAdapter = new ArrayAdapter<CharSequence>(getActivity(), android.R.layout.simple_spinner_item, test);
+        mSortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(mSortAdapter);
+        return view;
+
     }
 
 }
