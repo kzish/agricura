@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,15 +35,16 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements NewsAdapter.OnItemClickListener {
 
     private RecyclerView myRecycleView;
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     private List<News> newsList;
-    private RecyclerView.Adapter adapter;
+    private NewsAdapter adapter;
+    //NewsAdapter newsAdapter;
 
-    private String url = "https://www.centricdata.net/demo/a/agricura.json";
+    private String url = "http://167.86.73.213/agricura_php_apis/newslist.php";
 
 
     public NewsFragment() {
@@ -80,7 +82,11 @@ public class NewsFragment extends Fragment {
         myRecycleView.setAdapter(adapter);
         getData();
 
-        myRecycleView.addOnItemTouchListener(
+        adapter.setOnItemClickListener(this);
+
+
+
+        /*myRecycleView.addOnItemTouchListener(
                 new RecyclerView.OnItemTouchListener() {
                     @Override
                     public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
@@ -99,7 +105,8 @@ public class NewsFragment extends Fragment {
 
                     }
                 }
-        );
+        );*/
+
 
 
         return  view;
@@ -126,9 +133,7 @@ public class NewsFragment extends Fragment {
 
                                 news.setNewsHeadline(jsonObject.getString("Headline"));
                                 news.setNewsDetails(jsonObject.getString("Content"));
-                                news.setNewsImageUrl(jsonObject.getString("Imageur"));
-
-
+                                news.setNewsImageUrl(jsonObject.getString("ImageUrl"));
 
 
                                 newsList.add(news);
@@ -157,5 +162,15 @@ public class NewsFragment extends Fragment {
         RequestQueue requestQueue = Volley.
                 newRequestQueue(getContext());
         requestQueue.add(jsonArrayRequest);
+    }
+
+
+    @Override
+    public void onItemClick(int poz) {
+        News myNews = newsList.get(poz);
+        String newsID = String.valueOf(myNews.getNewsId());
+
+        Log.i("myKey", "click click");
+
     }
 }

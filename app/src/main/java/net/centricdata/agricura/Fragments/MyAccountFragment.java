@@ -21,7 +21,7 @@ public class MyAccountFragment extends Fragment {
     public MyAccountFragment() {
         // Required empty public constructor
     }
-CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado;
+CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado, other;
 
 
     @Override
@@ -39,6 +39,7 @@ CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado;
         tea = (CheckBox) view.findViewById(R.id.chkTea);
         macademia = (CheckBox) view.findViewById(R.id.chkMacademia);
         avocado = (CheckBox) view.findViewById(R.id.chkAvocado);
+        other = (CheckBox) view.findViewById(R.id.chkOther);
 
         Button btn = (Button) view.findViewById(R.id.btn_saveFormDetails);
 
@@ -67,6 +68,9 @@ CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado;
                 }
                 if (avocado.isChecked()) {
                     result += "\nAvocado";
+                }
+                if (other.isChecked()) {
+                    result += "\nOther";
                 }
                 Toast.makeText(getActivity().getApplicationContext(), result, Toast.LENGTH_SHORT).show();
             }

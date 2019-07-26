@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User personalisation to save and update you crop preferences..."
+        android:text="@string/user_personalisation_to_save_and_update_you_crop_preferences"
         android:textSize="20sp"/>
 
     <android.support.design.widget.TextInputLayout
@@ -29,7 +29,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mobile Number">
+        android:hint="@string/mobile_number">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/email"
         android:layout_marginVertical="8dp">
         <EditText
             android:layout_width="match_parent"
@@ -109,6 +109,15 @@
         android:padding="10dp"
         android:layout_marginLeft="12dp"
         android:text="Avocado" />
+
+    <CheckBox
+        android:id="@+id/chkOther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="12dp"
+        android:text="Other" />
+
 
     <TextView
         android:layout_width="match_parent"

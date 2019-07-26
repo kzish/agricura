@@ -22,6 +22,8 @@ import net.centricdata.agricura.Fragments.NewsDetailsFragment;
 import net.centricdata.agricura.Models.News;
 import net.centricdata.agricura.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
@@ -30,6 +32,30 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     private List<News> newsList;
 
     public String headlines = "";
+
+    private ArrayList<HashMap<String,String>> mDataset;
+
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        listener = listener;
+    }
+
+
+    public interface OnItemClickListener {
+        void onItemClick(int poz);
+    }
+
+    public void add(int position, HashMap<String,String> item) {
+        mDataset.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public void remove( HashMap<String,String> item) {
+        int position = mDataset.indexOf(item);
+        mDataset.remove(position);
+        notifyItemRemoved(position);
+    }
 
     public NewsAdapter(Context ctx, List<News> newsList) {
         this.ctx = ctx;
@@ -57,10 +83,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         newsViewHolder.nDate.setText(newsList.get(position).getNewsDatePosted());
         String img = newsList.get(position).getNewsImageUrl();
 
-        headlines = newsList.get(position).getNewsHeadline();
+        headlines = String.valueOf(newsList.get(position).getNewsId());
 
         Picasso.with(ctx)
                 .load(img)
+                //.placeholder()
                 .fit()
                 .into(newsViewHolder.myImage);
 
@@ -68,7 +95,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         //newsId
 
-        newsViewHolder.newsCard.setOnClickListener(
+        /*newsViewHolder.newsCard.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -93,7 +120,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                         ft.commit();
                     }
                 }
-        );
+        );*/
 
 
     }
@@ -122,6 +149,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             nHeadline = myNewsView.findViewById(R.id.txtNewsHeadline);
             newsCard = myNewsView.findViewById(R.id.card_news);
             myImage = myNewsView.findViewById(R.id.imgNewsImage);
+
+            itemView.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if(listener != null){
+                                int poz = getAdapterPosition();
+                                if(poz != RecyclerView.NO_POSITION){
+                                    listener.onItemClick(poz);
+                                }
+                            }
+                        }
+                    }
+            );
 
 
 

@@ -47,6 +47,8 @@ import static java.security.AccessController.getContext;
 
 public class WeatherFragment extends Fragment {
 
+    static String latitude = "-17.8581";
+    static String longitude= "31.0553";
 
     public WeatherFragment() {
         // Required empty public constructor
@@ -59,11 +61,12 @@ public class WeatherFragment extends Fragment {
     TextView showLocationTxt;
 
     LocationManager locationManager;
-    String latitude, longitude;
 
     private ArrayList<DayForecastObject> forecastList;
     private WeatherViewAdapter adapter;
-    public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=4670592&cnt=6&units=imperial&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+   // public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=4670592&cnt=6&units=imperial&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+
+    public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +" &lon=" +longitude +"&cnt=10&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
