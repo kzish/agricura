@@ -27,7 +27,12 @@ public class SingleProductFragment extends Fragment {
     PassData PD;
     String diseaseName;
     String pTitle;
+    String pQuantities;
+    String pDescription;
     TextView productNameTextView;
+    TextView productQuantitiesTextView;
+    TextView productDescripionTextView;
+
 
     public SingleProductFragment() {
         // Required empty public constructor
@@ -40,15 +45,22 @@ public class SingleProductFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_single_product, container, false);
         pTitle = getArguments().getString("pname");
+        pQuantities= getArguments().getString("pQuantities");
+        pDescription= getArguments().getString("pDescription");
 
 
 
         getActivity().setTitle(pTitle);
 
         //productName= view.findViewById(R.id.txtProductName).toString();
-        productNameTextView= view.findViewById(R.id.txtProductCatName);
-        //productNameTextView.setText("Prozozo");
-        productNameTextView.setText("Prozozo");
+        productNameTextView= view.findViewById(R.id.txtProName);
+        productQuantitiesTextView=view.findViewById(R.id.txtProductQuatities);
+        productDescripionTextView= view.findViewById(R.id.txtProductDescription);
+        productNameTextView.setText(pTitle);
+        productQuantitiesTextView.setText(pQuantities);
+        productDescripionTextView.setText(pDescription);
+
+
 
         buttonPests= view.findViewById(R.id.btn1ProductPests);
 
