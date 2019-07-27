@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "161805572327",
+    "firebase_url": "https://agricura-mobile-app.firebaseio.com",
+    "project_id": "agricura-mobile-app",
+    "storage_bucket": "agricura-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161805572327:android:c38ac854fca480c0",
+        "android_client_info": {
+          "package_name": "net.centricdata.agricura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161805572327-lfc82dttht079b7ivcc1g26816f6r7pr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.centricdata.agricura",
+            "certificate_hash": "e997c6c7cb00efb2e57ae1d9c111542568046717"
+          }
+        },
+        {
+          "client_id": "161805572327-hvesvfqqnbotctmd6tke4h1vou1e028b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeqmoeRyMFAZJoWBE1hUAzSt5XIN-A_MM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161805572327-hvesvfqqnbotctmd6tke4h1vou1e028b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

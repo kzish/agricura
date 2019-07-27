@@ -29,7 +29,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="28sp" />
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ret1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -42,8 +42,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textColor="@color/colorPrimary"/>
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ret2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -56,8 +56,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textColor="@color/colorPrimary"/>
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ret3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,8 +70,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textColor="@color/colorPrimary"/>
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ret4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,8 +84,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textColor="@color/colorPrimary"/>
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ret5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,9 +98,9 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textColor="@color/colorPrimary"/>
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ret6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textColor="@color/colorPrimary"/>
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent" android:layout_height="wrap_content">
