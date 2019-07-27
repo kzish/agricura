@@ -1,6 +1,7 @@
 package net.centricdata.agricura.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -15,12 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import net.centricdata.agricura.Fragments.ProductsFragment;
-import net.centricdata.agricura.Fragments.SalesRepDetailsFragment;
 import net.centricdata.agricura.Fragments.SingleProductFragment;
-import net.centricdata.agricura.Models.ProductCategories;
 import net.centricdata.agricura.Models.Products;
-import net.centricdata.agricura.Models.SalesTeam;
 import net.centricdata.agricura.R;
 
 import java.util.ArrayList;
@@ -40,16 +37,30 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
+
         Context context= viewGroup.getContext();
         mInflater= LayoutInflater.from(context);
-        View view = mInflater.inflate(R.layout.row_products, viewGroup, false);
+        final View view = mInflater.inflate(R.layout.row_products, viewGroup, false);
+
+
+        final ViewHolder holder = new ViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Products selectedProduct= mproducts.get(position);
+                Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
+                intent.putExtra("Products", selectedProduct);
+                view.getContext().startActivity(intent);
+            }
+        });
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
-        Products products= mproducts.get(i);
+        final Products products= mproducts.get(i);
         TextView textView1= viewHolder.prodNameTextView;
         textView1.setText(products.getProdName());
         viewHolder.prodNameTextView.setText((mproducts.get(i).getProdName()));
@@ -59,11 +70,14 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             @Override
             public void onClick(View v) {
 
+
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 Fragment fragment=new SingleProductFragment();
 
                 Bundle bundle= new Bundle();
                 bundle.putString("pname", mproducts.get(i).prodName);
+                bundle.putString("pQuantities", mproducts.get(i).prodQuantities);
+                bundle.putString("pDescription", mproducts.get(i).prodDescription);
 
                 Log.e("proName", mproducts.get(i).prodName);
 
@@ -73,9 +87,13 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 ft.addToBackStack("products");
                 ft.commit();
             }
+
         });
 
+
     }
+
+
 
     @Override
     public int getItemCount() {
