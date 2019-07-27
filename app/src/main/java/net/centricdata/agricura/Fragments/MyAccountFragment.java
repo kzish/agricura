@@ -8,9 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.centricdata.agricura.R;
+
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +26,9 @@ public class MyAccountFragment extends Fragment {
         // Required empty public constructor
     }
 CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado, other;
+ TextView fullName, mobile, email;
+ ArrayList<String> crops = new ArrayList<>();
+int count =0;
 
 
     @Override
@@ -31,6 +38,10 @@ CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado, other;
 
         getActivity().setTitle("My Account");
         View view = inflater.inflate(R.layout.fragment_my_account, container, false);
+
+        fullName = (TextView) view.findViewById(R.id.EditTextFullname);
+        mobile = (TextView) view.findViewById(R.id.EditTextMobile);
+        email = (TextView) view.findViewById(R.id.EditTextEmail);
 
         maize = (CheckBox) view.findViewById(R.id.chkMaize);
         sugarCane = (CheckBox) view.findViewById(R.id.chkSugarCane);
@@ -46,33 +57,44 @@ CheckBox maize, sugarCane, soyaBeans, tobacco, tea, macademia, avocado, other;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String result = "Selected Crops";
+                //String result = "";
+                //crops.add(result);
 
                 if (maize.isChecked()) {
-                    result += "\nMaize";
+                   // result += "\nMaize";
+                    crops.add("Maize");
                 }
                 if (sugarCane.isChecked()) {
-                    result += "\nSugar Cane";
+                    //result += "\nSugar Cane";
+                    crops.add("Sugar Cane");
                 }
                 if (soyaBeans.isChecked()) {
-                    result += "\nSoya Beans";
+                    //result += "\nSoya Beans";
+                    crops.add("Soya Beans");
                 }
                 if (tobacco.isChecked()) {
-                    result += "\nTobacco";
+                    //result += "\nTobacco";
+                    crops.add("Tobacco");
                 }
                 if (tea.isChecked()) {
-                    result += "\nTea";
+                    //result += "\nTea";
+                    crops.add("Tea");
                 }
                 if (macademia.isChecked()) {
-                    result += "\nMacademia";
+                    //result += "\nMacademia";
+                    crops.add("Macademia");
                 }
                 if (avocado.isChecked()) {
-                    result += "\nAvocado";
+                    //result += "\nAvocado";
+                    crops.add("Avocado");
                 }
                 if (other.isChecked()) {
-                    result += "\nOther";
+                    //result += "\nOther";
+                    crops.add("Other");
                 }
-                Toast.makeText(getActivity().getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+
+                String myCropString = crops.toString();
+                Toast.makeText(getActivity().getApplicationContext(), myCropString, Toast.LENGTH_SHORT).show();
             }
         });
 
