@@ -42,6 +42,8 @@ public class CalendarFragment extends Fragment {
         for (int i = 0; i < arr.length; i++) {
             int eventCount = 3;
             customCalendar.addAnEvent(arr[i], eventCount, getEventDataList(eventCount));
+            //customCalendar.setBottom(3);
+
 
         }
 

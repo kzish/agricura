@@ -63,6 +63,7 @@ int count =0;
                 if (maize.isChecked()) {
                    // result += "\nMaize";
                     crops.add("Maize");
+                    //crops.remove("Maize");
                 }
                 if (sugarCane.isChecked()) {
                     //result += "\nSugar Cane";
