@@ -14,11 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </ScrollView>
 
         <ImageView
             android:id="@+id/imgDisease"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:layout_marginLeft="@dimen/common_20_dp"
             android:layout_marginTop="@dimen/common_20_dp"
             android:layout_marginRight="@dimen/common_20_dp"
@@ -86,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/common_40_dp"
-                android:text="Affect"
+                android:text="Affects"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
                 android:textSize="22sp" />

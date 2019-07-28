@@ -47,11 +47,19 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< Updated upstream
+                //int position = holder.getAdapterPosition();
+                //Products selectedProduct= mproducts.get(position);
+                //Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
+                //intent.putExtra("Products", selectedProduct);
+                //view.getContext().startActivity(intent);
+=======
                 int position = holder.getAdapterPosition();
                 Products selectedProduct= mproducts.get(position);
                 Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 intent.putExtra("Products", selectedProduct);
                 view.getContext().startActivity(intent);
+>>>>>>> Stashed changes
             }
         });
         return new ViewHolder(view);
@@ -80,7 +88,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 bundle.putString("pDescription", mproducts.get(i).prodDescription);
 
                 Log.e("proName", mproducts.get(i).prodName);
-
                 fragment.setArguments(bundle);
                 FragmentTransaction ft =  activity.getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.content_main, fragment);

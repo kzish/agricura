@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Intent;
+
+import com.squareup.picasso.Picasso;
 
 import net.centricdata.agricura.R;
 
@@ -20,6 +23,7 @@ import net.centricdata.agricura.R;
  * A simple {@link Fragment} subclass.
  */
 public class SingleProductFragment extends Fragment {
+
 
 
     String productName;
@@ -32,7 +36,15 @@ public class SingleProductFragment extends Fragment {
     TextView productNameTextView;
     TextView productQuantitiesTextView;
     TextView productDescripionTextView;
+<<<<<<< Updated upstream
+    String imageUri ="";
+    ImageView productImage;
+    //= "https://i.imgur.com/tGbaZCY.jpg";
+    //ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
+    //    Picasso.with(context).load(imageUri).into(ivBasicImage);
+=======
 
+>>>>>>> Stashed changes
 
     public SingleProductFragment() {
         // Required empty public constructor
@@ -44,9 +56,14 @@ public class SingleProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_single_product, container, false);
+
         pTitle = getArguments().getString("pname");
         pQuantities= getArguments().getString("pQuantities");
         pDescription= getArguments().getString("pDescription");
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -54,6 +71,10 @@ public class SingleProductFragment extends Fragment {
 
         //productName= view.findViewById(R.id.txtProductName).toString();
         productNameTextView= view.findViewById(R.id.txtProName);
+<<<<<<< Updated upstream
+        //productNameTextView= view.findViewWithTag("single_product_name_tag");
+=======
+>>>>>>> Stashed changes
         productQuantitiesTextView=view.findViewById(R.id.txtProductQuatities);
         productDescripionTextView= view.findViewById(R.id.txtProductDescription);
         productNameTextView.setText(pTitle);

@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.ImageView;
 
+import net.centricdata.agricura.Adapters.ProductCategoriesAdapter;
 import net.centricdata.agricura.R;
 
 import java.util.ArrayList;
@@ -19,6 +20,13 @@ public class Products implements Parcelable {
     public String prodQuantities;
     public ImageView prodImage;
     public String prodImageName;
+<<<<<<< Updated upstream
+    public String mselectedProduct= ProductCategoriesAdapter.get();
+
+
+
+=======
+>>>>>>> Stashed changes
 
     public Products(String productCategory,String productImage, String productName, String productDescription, String productQuantities){
 
@@ -32,6 +40,26 @@ public class Products implements Parcelable {
 
 
     }
+
+    protected Products(Parcel in) {
+        prodName = in.readString();
+        prodCategory = in.readString();
+        prodDescription = in.readString();
+        prodQuantities = in.readString();
+        prodImageName = in.readString();
+    }
+
+    public static final Creator<Products> CREATOR = new Creator<Products>() {
+        @Override
+        public Products createFromParcel(Parcel in) {
+            return new Products(in);
+        }
+
+        @Override
+        public Products[] newArray(int size) {
+            return new Products[size];
+        }
+    };
 
     public String getProdName() {
         return prodName;
@@ -81,7 +109,14 @@ public class Products implements Parcelable {
         this.prodImageName = prodImageName;
     }
 
+<<<<<<< Updated upstream
+
+
+
+=======
+>>>>>>> Stashed changes
     public static ArrayList<Products> createProductsList(){
+
 
         ArrayList<Products> products= new ArrayList<>();
 
@@ -105,6 +140,14 @@ public class Products implements Parcelable {
         products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
         products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
 
+/*
+        ArrayList<Products> productsToshow= new ArrayList<>();
+        for (Products  p: products)
+            if (p.prodCategory=="Bait"){
+                productsToshow.add(p);
+            }
+            */
+
         return  products;
     }
 
@@ -115,6 +158,14 @@ public class Products implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+<<<<<<< Updated upstream
+        dest.writeString(prodName);
+        dest.writeString(prodCategory);
+        dest.writeString(prodDescription);
+        dest.writeString(prodQuantities);
+        dest.writeString(prodImageName);
+=======
 
+>>>>>>> Stashed changes
     }
 }

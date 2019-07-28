@@ -17,6 +17,7 @@ import android.widget.TextView;
 import net.centricdata.agricura.Fragments.ProductsFragment;
 import net.centricdata.agricura.Fragments.SalesRepDetailsFragment;
 import net.centricdata.agricura.Models.ProductCategories;
+import net.centricdata.agricura.Models.Products;
 import net.centricdata.agricura.Models.SalesTeam;
 import net.centricdata.agricura.R;
 
@@ -28,10 +29,15 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
     private List<ProductCategories> mproductCategories;
     private LayoutInflater mInflater;
     private View.OnClickListener onClickListener;
+    private String catName;
 
+    static String st;
+    public static String get() {
 
+        st="Ola";
 
-
+        return st;
+    }
 
     public ProductCategoriesAdapter(ArrayList<ProductCategories> productCategories) {
 
@@ -50,7 +56,7 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder,final int i) {
 
         ProductCategories productCategories= mproductCategories.get(i);
         TextView textView1= viewHolder.catNameTextView;
@@ -62,13 +68,20 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
 
 
 
+
         viewHolder.cardViewProductCategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 Fragment fragment=new ProductsFragment();
+                Products products= new Products(mproductCategories.get(i).getCatName(),"","","", "" );
 
+
+                Bundle bundle= new Bundle();
+                bundle.putString("cname", mproductCategories.get(i).getCatName());
+                fragment.setArguments(bundle);
                 FragmentTransaction ft =  activity.getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.content_main, fragment);
                 ft.addToBackStack("productCategories");
@@ -82,6 +95,7 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
 
 
 
+
     }
 
     @Override
@@ -89,6 +103,7 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
 
         return mproductCategories.size();
     }
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
