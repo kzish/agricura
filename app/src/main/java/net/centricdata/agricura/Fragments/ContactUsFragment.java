@@ -2,14 +2,13 @@ package net.centricdata.agricura.Fragments;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -75,7 +74,7 @@ public class ContactUsFragment extends Fragment {
 
     private void sendContactForm() {
 
-        String urlPost = "http://www.centricdata.net/demo/a/contact.php";
+        String urlPost = "https://www.centricdata.net/demo/a/contact.php";
 
         final String n = name.getText().toString().trim();
         final String t = tel.getText().toString().trim();

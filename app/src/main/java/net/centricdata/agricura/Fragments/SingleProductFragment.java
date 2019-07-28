@@ -3,16 +3,15 @@ package net.centricdata.agricura.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.content.Intent;
 
 import com.squareup.picasso.Picasso;
 
@@ -37,11 +36,15 @@ public class SingleProductFragment extends Fragment {
     TextView productQuantitiesTextView;
     TextView productDescripionTextView;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     String imageUri ="";
     ImageView productImage;
     //= "https://i.imgur.com/tGbaZCY.jpg";
     //ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
     //    Picasso.with(context).load(imageUri).into(ivBasicImage);
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -61,7 +64,10 @@ public class SingleProductFragment extends Fragment {
         pQuantities= getArguments().getString("pQuantities");
         pDescription= getArguments().getString("pDescription");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -72,7 +78,10 @@ public class SingleProductFragment extends Fragment {
         //productName= view.findViewById(R.id.txtProductName).toString();
         productNameTextView= view.findViewById(R.id.txtProName);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         //productNameTextView= view.findViewWithTag("single_product_name_tag");
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         productQuantitiesTextView=view.findViewById(R.id.txtProductQuatities);

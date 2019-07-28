@@ -21,10 +21,13 @@ public class Products implements Parcelable {
     public ImageView prodImage;
     public String prodImageName;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public String mselectedProduct= ProductCategoriesAdapter.get();
 
 
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -110,9 +113,12 @@ public class Products implements Parcelable {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     public static ArrayList<Products> createProductsList(){
@@ -159,11 +165,15 @@ public class Products implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         dest.writeString(prodName);
         dest.writeString(prodCategory);
         dest.writeString(prodDescription);
         dest.writeString(prodQuantities);
         dest.writeString(prodImageName);
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

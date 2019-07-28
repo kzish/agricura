@@ -2,7 +2,7 @@ package net.centricdata.agricura.Fragments;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +42,8 @@ public class CalendarFragment extends Fragment {
         for (int i = 0; i < arr.length; i++) {
             int eventCount = 3;
             customCalendar.addAnEvent(arr[i], eventCount, getEventDataList(eventCount));
+            //customCalendar.setBottom(3);
+
 
         }
 

@@ -10,8 +10,7 @@ public class CalendarUtils {
         private static final String CALENDAR_MONTH_TITLE_FORMAT = "MMMM yyyy";
         private static final String[] NAMES = {"Wheat Season", "Chemicals Application", "Land Preparation"};
         private static final String[] EVENTS = {"Farming", "Cultivation", "Farming Events"};
-        private static final String[] EVENTS_DESCRIPTION = {"Prepare Your land", "Buy chemicals at Agricura"
-                , "@ Some Place in Harare"};
+        private static final String[] EVENTS_DESCRIPTION = {"Prepare Your land", "Buy chemicals at Agricura", "@ Some Place in Harare"};
 
         public static SimpleDateFormat getCalendarDBFormat() {
             return new SimpleDateFormat(CALENDAR_DB_FORMAT);

@@ -3,12 +3,12 @@ package net.centricdata.agricura.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,17 +48,23 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             @Override
             public void onClick(View v) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 //int position = holder.getAdapterPosition();
                 //Products selectedProduct= mproducts.get(position);
                 //Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 //intent.putExtra("Products", selectedProduct);
                 //view.getContext().startActivity(intent);
 =======
+=======
+>>>>>>> Stashed changes
                 int position = holder.getAdapterPosition();
                 Products selectedProduct= mproducts.get(position);
                 Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 intent.putExtra("Products", selectedProduct);
                 view.getContext().startActivity(intent);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             }
         });

@@ -1,24 +1,26 @@
 package net.centricdata.agricura.Adapters;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import net.centricdata.agricura.Fragments.ProductsFragment;
-import net.centricdata.agricura.Fragments.SalesRepDetailsFragment;
 import net.centricdata.agricura.Models.ProductCategories;
+<<<<<<< HEAD
 import net.centricdata.agricura.Models.Products;
 import net.centricdata.agricura.Models.SalesTeam;
+=======
+>>>>>>> 711e6de00c9b9681dea1a5ddddde8c77bb6dc8d9
 import net.centricdata.agricura.R;
 
 import java.util.ArrayList;
