@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import net.centricdata.agricura.R;
 
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment {
     CardView sales;
     CardView my_acc;
     CardView my_weather;
+    ImageView weather_icon;
 
 
     public HomeFragment() {
@@ -69,6 +71,8 @@ public class HomeFragment extends Fragment {
         }
 */
 
+        weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
+        weather_icon.setImageResource(R.drawable.sun_icon);
 
         mybranch = view.findViewById(R.id.card_branches);
         news = view.findViewById(R.id.card_news);

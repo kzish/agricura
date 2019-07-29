@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#005900</color>
     <color name="colorAccent">#FFEB3B</color>
     <color name="backgroundcalaz">#fcfcfc</color>
+    <color name="backgroundImgView">#80FFFFFF</color>
 </resources>
