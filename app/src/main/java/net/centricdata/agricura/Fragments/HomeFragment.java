@@ -1,6 +1,7 @@
 package net.centricdata.agricura.Fragments;
 
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import net.centricdata.agricura.R;
 
@@ -37,6 +39,7 @@ public class HomeFragment extends Fragment {
     CardView my_acc;
     CardView my_weather;
     ImageView weather_icon;
+    TextView current_location, current_temp;
 
 
     public HomeFragment() {
@@ -71,8 +74,17 @@ public class HomeFragment extends Fragment {
         }
 */
 
+        //setting variable programmatically
         weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
         weather_icon.setImageResource(R.drawable.sun_icon);
+        weather_icon.setBackgroundColor(Color.TRANSPARENT);
+
+        current_location = view.findViewById(R.id.textViewLocation);
+        current_temp = view.findViewById(R.id.textViewCurrentTemp);
+
+        current_location.setText("Graniteside, Harare");
+        current_temp.setText("19\'");
+
 
         mybranch = view.findViewById(R.id.card_branches);
         news = view.findViewById(R.id.card_news);
