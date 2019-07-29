@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import net.centricdata.agricura.Fragments.ProductsFragment;
 import net.centricdata.agricura.Models.ProductCategories;
-<<<<<<< HEAD
 import net.centricdata.agricura.Models.Products;
 import net.centricdata.agricura.Models.SalesTeam;
-=======
->>>>>>> 711e6de00c9b9681dea1a5ddddde8c77bb6dc8d9
+
 import net.centricdata.agricura.R;
 
 import java.util.ArrayList;
@@ -91,10 +90,6 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
             }
 
         });
-
-
-
-
 
 
 

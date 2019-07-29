@@ -47,26 +47,21 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
                 //int position = holder.getAdapterPosition();
                 //Products selectedProduct= mproducts.get(position);
                 //Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 //intent.putExtra("Products", selectedProduct);
                 //view.getContext().startActivity(intent);
-=======
-=======
->>>>>>> Stashed changes
+
+
                 int position = holder.getAdapterPosition();
                 Products selectedProduct= mproducts.get(position);
                 Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 intent.putExtra("Products", selectedProduct);
                 view.getContext().startActivity(intent);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-            }
+
+      }
         });
         return new ViewHolder(view);
     }
