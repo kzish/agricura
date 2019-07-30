@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kwabenaberko.openweathermaplib.constants.Units;
+import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
+
 import net.centricdata.agricura.R;
 
 import java.io.IOException;
@@ -44,6 +47,7 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {
         // Required empty public constructor
+
     }
 
 
@@ -54,25 +58,10 @@ public class HomeFragment extends Fragment {
         getActivity().setTitle("Home");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-/*
-        String content;
-        WeatherFetch myWeather = new WeatherFetch();
-        try {
-            content = myWeather.execute("https://openweathermap.org/data/2.5/weather?q=Harare&appid=b6907d289e10d714a6e88b30761fae22").get();
+        OpenWeatherMapHelper helper = new OpenWeatherMapHelper(getString(R.string.OPEN_WEATHER_MAP_API_KEY));
+        helper.setUnits(Units.METRIC);
 
-            Log.i("contentData", content);
-            //JSON
-            JSONObject jsonObject = new JSONObject(content);
-            String weatherData = jsonObject.getString("weatherData");
-            Log.i("weatherData", weatherData);
-
-            JSONArray array = new JSONArray(weatherData);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
+        
 
         //setting variable programmatically
         weather_icon = view.findViewById(R.id.imgViewWeatherIcon);

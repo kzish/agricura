@@ -70,5 +70,6 @@
     <string name="title_activity_income_statement">IncomeStatementActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="OPEN_WEATHER_MAP_API_KEY">cfd6a2466e0fa66f977fbc7258d451ec</string>
 
 </resources>
