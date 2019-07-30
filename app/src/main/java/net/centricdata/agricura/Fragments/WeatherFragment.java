@@ -11,16 +11,20 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,14 +37,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+import static java.time.LocalDate.now;
 
 
 public class WeatherFragment extends Fragment {
@@ -58,8 +67,10 @@ public class WeatherFragment extends Fragment {
     private static final int REQUEST_LOCATION=1;
 
     Button getLocationBtn;
-    TextView showLocationTxt;
+    TextView showLocationTxt, showDateToday, showCurrentTemp, errorShower;
+    ImageView weatherIcon;
 
+    SwipeRefreshLayout mySwipeWeather;
     LocationManager locationManager;
 
     private ArrayList<DayForecastObject> forecastList;
@@ -76,14 +87,37 @@ public class WeatherFragment extends Fragment {
 
         //adding location permissions
 
+
         ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
-        showLocationTxt = view.findViewById(R.id.show_location);
-        getLocationBtn = view.findViewById(R.id.getLocation);
+        showCurrentTemp = view.findViewById(R.id.show_current_temp);
+        showDateToday = view.findViewById(R.id.txtViewDate_today);
+        mySwipeWeather = view.findViewById(R.id.weekly_refresh_layout);
+        weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
 
-        getLocationBtn.setOnClickListener(new View.OnClickListener() {
+        mySwipeWeather.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View v) {
+            public void onRefresh() {
+
+                forecastList = new ArrayList<>(5);
+
+             //   showWeather();
+
+                RecyclerView weekRecyclerView = (RecyclerView) view.findViewById(R.id.weekRecyclerView);
+                weekRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                adapter = new WeatherViewAdapter(forecastList);
+                weekRecyclerView.setAdapter(adapter);
+                new WeatherTask().execute();
+
+                String myDate;
+
+                //myDate = DateFormat.getDateInstance().format(new Date());
+                myDate = DateFormat.getDateTimeInstance().format(new Date());
+
+                showDateToday.setText("Today is: " + myDate);
+                showCurrentTemp.setText("Current Temp is: " + "20\'");
+                weatherIcon.setImageResource(R.drawable.sun_icon);
+
 
                 locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
@@ -91,8 +125,8 @@ public class WeatherFragment extends Fragment {
 
                 if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
                 {
-                //Method to enable GPS
-                OnGPS();
+                    //Method to enable GPS
+                    OnGPS();
                 }
                 else
                 {
@@ -101,19 +135,21 @@ public class WeatherFragment extends Fragment {
                     getLocation();
                 }
             }
+
         });
-
-
-
-        RecyclerView weekRecyclerView = (RecyclerView) view.findViewById(R.id.weekRecyclerView);
-        weekRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new WeatherViewAdapter(forecastList);
-        weekRecyclerView.setAdapter(adapter);
-        new WeatherTask().execute();
+Handler mHandler = new Handler();
+mHandler.postDelayed(new Runnable() {
+    @Override
+    public void run() {
+        mySwipeWeather.setRefreshing(false);
+    }
+},2000);
 
 
         return view;
     }
+
+
 
     private void getLocation() {
         //Check permissions again
@@ -256,6 +292,9 @@ public class WeatherFragment extends Fragment {
 
         } catch (JSONException e) {
             e.printStackTrace();
+
+            errorShower = getView().findViewById(R.id.textViewErrorShow);
+            errorShower.setText("No Network or Weather not found");
             return ("Exception Caught");
         }
     }
