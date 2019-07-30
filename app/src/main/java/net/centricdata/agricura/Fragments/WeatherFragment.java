@@ -75,7 +75,7 @@ public class WeatherFragment extends Fragment {
 
     private ArrayList<DayForecastObject> forecastList;
     private WeatherViewAdapter adapter;
-   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=4670592&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=4670592&cnt=7&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
    // public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +" &lon=" +longitude +"&cnt=10&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
@@ -99,7 +99,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onRefresh() {
 
-                forecastList = new ArrayList<>(5);
+                forecastList = new ArrayList<>(7);
 
              //   showWeather();
 
