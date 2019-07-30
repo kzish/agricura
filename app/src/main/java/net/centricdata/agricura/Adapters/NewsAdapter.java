@@ -5,7 +5,11 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +19,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import net.centricdata.agricura.Fragments.NewsDetailsFragment;
 import net.centricdata.agricura.Models.News;
 import net.centricdata.agricura.R;
 
@@ -77,7 +82,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         final int newsId = newsList.get(position).getNewsId();
         newsViewHolder.nDetails.setText(newsList.get(position).getNewsDetails());
         newsViewHolder.nDate.setText(newsList.get(position).getNewsDatePosted());
-        String img = newsList.get(position).getNewsImageUrl();
+
+        final String img = newsList.get(position).getNewsImageUrl();
+
+        final String newzDet = newsList.get(position).getNewsDetails();
+
+        final String newzHead = newsList.get(position).getNewsHeadline();
 
         headlines = String.valueOf(newsList.get(position).getNewsId());
 
@@ -87,7 +97,33 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                 .fit()
                 .into(newsViewHolder.myImage);
 
-        Log.e("urlImage", img);
+        newsViewHolder.newsCard.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Log.d("poshoto", "onClick: clicked on: " + newz);
+
+                        AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("newzImg" ,img );
+                        bundle.putString("newzHead" ,newzHead );
+                        bundle.putString("newzDet" ,newzDet );
+
+                        Fragment fragment = new NewsDetailsFragment();
+
+                        fragment.setArguments(bundle);
+
+
+                        FragmentTransaction ft =  activity.getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.content_main, fragment);
+                        ft.addToBackStack("news");
+                        ft.commit();
+                    }
+                }
+        );
+
+
 
         //newsId
 
@@ -140,25 +176,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             View myNewsView = itemView;
 
 
+
             nDate = myNewsView.findViewById(R.id.txtNewsDate);
             nDetails = myNewsView.findViewById(R.id.txtNewsDetails);
             nHeadline = myNewsView.findViewById(R.id.txtNewsHeadline);
             newsCard = myNewsView.findViewById(R.id.card_news);
             myImage = myNewsView.findViewById(R.id.imgNewsImage);
 
-            itemView.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if(listener != null){
-                                int poz = getAdapterPosition();
-                                if(poz != RecyclerView.NO_POSITION){
-                                    listener.onItemClick(poz);
-                                }
-                            }
-                        }
-                    }
-            );
+
 
 
 
