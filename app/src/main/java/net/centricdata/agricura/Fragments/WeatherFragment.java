@@ -45,8 +45,10 @@ import okhttp3.Response;
 
 public class WeatherFragment extends Fragment {
 
-    static String latitude = "-17.8581";
-    static String longitude= "31.0553";
+    static String latitude;
+    //= "-17.8581";
+    static String longitude;
+    //= "31.0553";
 
     public WeatherFragment() {
         // Required empty public constructor

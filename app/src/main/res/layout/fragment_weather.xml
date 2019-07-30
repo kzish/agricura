@@ -21,6 +21,16 @@
 
         <TextView
             android:layout_margin="5dp"
+            android:text="Today's Weather"
+            android:hint="location"
+            android:textSize="10dp"
+            android:id="@+id/date_today"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_margin="5dp"
             android:text="Your Location Coordinates"
             android:hint="location"
             android:textSize="10dp"

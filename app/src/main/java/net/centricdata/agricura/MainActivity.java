@@ -26,6 +26,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import net.centricdata.agricura.Fragments.AddEventFragment;
 import net.centricdata.agricura.Fragments.BranchesFragment;
 import net.centricdata.agricura.Fragments.CalendarFragment;
 import net.centricdata.agricura.Fragments.ContactUsFragment;
@@ -47,7 +48,7 @@ import daoModels.BranchesDao;
 import daoModels.DaoSession;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SingleProductFragment.PassData {
+        implements NavigationView.OnNavigationItemSelectedListener, SingleProductFragment.PassData, AddEventFragment.OnFragmentInteractionListener {
 
     BranchesDao branchesDao;
     Query<Branches> branchesQuery;
@@ -404,6 +405,11 @@ public class MainActivity extends AppCompatActivity
 
         ProductDiseaseFragment fragment= (ProductDiseaseFragment) getSupportFragmentManager().findFragmentById(R.id.productDisease);
         fragment.passDiseaseInfo(productName);
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 

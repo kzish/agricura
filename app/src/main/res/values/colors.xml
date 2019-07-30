@@ -5,4 +5,5 @@
     <color name="colorAccent">#FFEB3B</color>
     <color name="backgroundcalaz">#fcfcfc</color>
     <color name="backgroundImgView">#80FFFFFF</color>
+    <color name="lightGreen">#09FF11</color>
 </resources>
