@@ -25,7 +25,7 @@
             android:layout_margin="5dp"
             android:text="Today's Weather"
             android:hint="location"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:id="@+id/txtViewDate_today"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
