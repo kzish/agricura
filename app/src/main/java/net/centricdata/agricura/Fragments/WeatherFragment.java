@@ -11,7 +11,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -20,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +27,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.kwabenaberko.openweathermaplib.constants.Lang;
+import com.kwabenaberko.openweathermaplib.constants.Units;
+import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
+import com.kwabenaberko.openweathermaplib.implementation.callbacks.CurrentWeatherCallback;
+import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
 
 import net.centricdata.agricura.R;
 import net.centricdata.agricura.Weather.DayForecastObject;
@@ -39,9 +45,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -49,6 +53,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.crashlytics.android.core.CrashlyticsCore.TAG;
 import static java.time.LocalDate.now;
 
 
@@ -63,7 +68,6 @@ public class WeatherFragment<view> extends Fragment {
         // Required empty public constructor
     }
     private View view;
-
 
     private static final int REQUEST_LOCATION=1;
 
@@ -87,7 +91,9 @@ public class WeatherFragment<view> extends Fragment {
                 view = inflater.inflate(R.layout.fragment_weather,
                 container, false);
 
+
         showWeather();
+        showCurrentWeather();
         //adding location permissions
 
         ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
@@ -104,6 +110,31 @@ public class WeatherFragment<view> extends Fragment {
 
         mySwipeWeather.setRefreshing(false);
         return view;
+    }
+
+    private void showCurrentWeather() {
+
+        OpenWeatherMapHelper helper = new OpenWeatherMapHelper(getString(R.string.OPEN_WEATHER_MAP_API_KEY));
+
+        helper.setUnits(Units.METRIC);
+        helper.setLang(Lang.ENGLISH);
+
+        helper.getCurrentWeatherByCityID("890299", new CurrentWeatherCallback() {
+            @Override
+            public void onSuccess(CurrentWeather currentWeather) {
+                double avg_temp = currentWeather.getMain().getTemp();
+                String tempAvg = String.valueOf(avg_temp);
+                showCurrentTemp.setText("Current Temp is: " + tempAvg + "°C" );
+                weatherIcon.setImageResource(R.drawable.sun_icon);
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                Log.v(TAG, throwable.getMessage());
+            }
+        });
+
     }
 
     private View showWeather() {
@@ -130,8 +161,6 @@ public class WeatherFragment<view> extends Fragment {
         myDate = DateFormat.getDateTimeInstance().format(new Date());
 
         showDateToday.setText("Today is: " + myDate);
-        showCurrentTemp.setText("Current Temp is: " + "20\'");
-        weatherIcon.setImageResource(R.drawable.sun_icon);
 
 
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
