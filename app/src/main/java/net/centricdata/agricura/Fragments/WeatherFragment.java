@@ -52,7 +52,7 @@ import okhttp3.Response;
 import static java.time.LocalDate.now;
 
 
-public class WeatherFragment extends Fragment {
+public class WeatherFragment<view> extends Fragment {
 
     static String latitude;
     //= "-17.8581";
@@ -62,6 +62,7 @@ public class WeatherFragment extends Fragment {
     public WeatherFragment() {
         // Required empty public constructor
     }
+    private View view;
 
 
     private static final int REQUEST_LOCATION=1;
@@ -75,80 +76,82 @@ public class WeatherFragment extends Fragment {
 
     private ArrayList<DayForecastObject> forecastList;
     private WeatherViewAdapter adapter;
-   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=4670592&cnt=7&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=890299&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
    // public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +" &lon=" +longitude +"&cnt=10&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_weather,
+        //final View
+                view = inflater.inflate(R.layout.fragment_weather,
                 container, false);
 
+        showWeather();
         //adding location permissions
-
 
         ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
-        showCurrentTemp = view.findViewById(R.id.show_current_temp);
-        showDateToday = view.findViewById(R.id.txtViewDate_today);
         mySwipeWeather = view.findViewById(R.id.weekly_refresh_layout);
-        weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
 
         mySwipeWeather.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
-                forecastList = new ArrayList<>(7);
-
-             //   showWeather();
-
-                RecyclerView weekRecyclerView = (RecyclerView) view.findViewById(R.id.weekRecyclerView);
-                weekRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                adapter = new WeatherViewAdapter(forecastList);
-                weekRecyclerView.setAdapter(adapter);
-                new WeatherTask().execute();
-
-                String myDate;
-
-                //myDate = DateFormat.getDateInstance().format(new Date());
-                myDate = DateFormat.getDateTimeInstance().format(new Date());
-
-                showDateToday.setText("Today is: " + myDate);
-                showCurrentTemp.setText("Current Temp is: " + "20\'");
-                weatherIcon.setImageResource(R.drawable.sun_icon);
-
-
-                locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-
-                //Check GPS is enabled or not
-
-                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-                {
-                    //Method to enable GPS
-                    OnGPS();
-                }
-                else
-                {
-                    //GPS is already on
-
-                    getLocation();
-                }
+                showWeather();
             }
-
         });
-Handler mHandler = new Handler();
-mHandler.postDelayed(new Runnable() {
-    @Override
-    public void run() {
+
         mySwipeWeather.setRefreshing(false);
-    }
-},2000);
-
-
         return view;
     }
 
+    private View showWeather() {
+
+        forecastList = new ArrayList<>(6);
+
+        //LayoutInflater inflater = getLayoutInflater();
+        //View myView = inflater.inflate(R.layout.fragment_weather, null);
+
+        showCurrentTemp = view.findViewById(R.id.show_current_temp);
+        showDateToday = view.findViewById(R.id.txtViewDate_today);
+
+        weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
+
+        RecyclerView weekRecyclerView = (RecyclerView) view.findViewById(R.id.weekRecyclerView);
+        weekRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new WeatherViewAdapter(forecastList);
+        weekRecyclerView.setAdapter(adapter);
+        new WeatherTask().execute();
+
+        String myDate;
+
+        //myDate = DateFormat.getDateInstance().format(new Date());
+        myDate = DateFormat.getDateTimeInstance().format(new Date());
+
+        showDateToday.setText("Today is: " + myDate);
+        showCurrentTemp.setText("Current Temp is: " + "20\'");
+        weatherIcon.setImageResource(R.drawable.sun_icon);
+
+
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        //Check GPS is enabled or not
+
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+        {
+            //Method to enable GPS
+            OnGPS();
+        }
+        else
+        {
+            //GPS is already on
+
+            getLocation();
+        }
+
+    return view;
+    }
 
 
     private void getLocation() {
