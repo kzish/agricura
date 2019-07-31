@@ -26,10 +26,16 @@
             android:layout_below="@+id/dt"/>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tVDescription"
+            android:layout_below="@+id/main"/>
+
+        <TextView
             android:id="@+id/maxTemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/main"/>
+            android:layout_below="@+id/tVDescription"/>
 
         <TextView
             android:id="@+id/minTemp"

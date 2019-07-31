@@ -226,6 +226,7 @@ public class WeatherFragment<view> extends Fragment {
                 forecastList.clear();
 
                 String jsonData = responses.body().string();
+
                 JSONObject jsonObj = new JSONObject(jsonData);
                 JSONArray listArray = jsonObj.getJSONArray("list");
 
@@ -239,12 +240,13 @@ public class WeatherFragment<view> extends Fragment {
                         long time = Long.parseLong(dayObj.getString("dt"));
                         Date date = new Date(time * 1000);
 
-                        dayForecast.setDt(new SimpleDateFormat("EEE, M/dd/yyyy", Locale.US).format(date));
+                        dayForecast.setDt(new SimpleDateFormat("E, dd MMM yyyy", Locale.US).format(date));
                         dayForecast.setMax(tempObj.getInt("max"));
                         dayForecast.setMin(tempObj.getInt("min"));
                         dayForecast.setMain(weatherArr.getJSONObject(0).getString("main"));
                         dayForecast.setSpeed(dayObj.getInt("speed"));
                         dayForecast.setHumidity(dayObj.getInt("humidity"));
+                        dayForecast.setDescription(weatherArr.getJSONObject(0).getString("description"));
                         forecastList.add(dayForecast);
                     }
                 }

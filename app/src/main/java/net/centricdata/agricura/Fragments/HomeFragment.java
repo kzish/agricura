@@ -4,6 +4,8 @@ package net.centricdata.agricura.Fragments;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.cardview.widget.CardView;
@@ -29,6 +31,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
 import im.delight.android.location.SimpleLocation;
 
@@ -39,8 +42,8 @@ import static com.crashlytics.android.core.CrashlyticsCore.TAG;
  */
 public class HomeFragment extends Fragment {
 
-    final double latitude = 0;
-    final double longitude = 0;
+    double latitude = 0;
+    double longitude = 0;
     CardView mybranch;
     CardView news;
     CardView calendar;
@@ -69,21 +72,7 @@ public class HomeFragment extends Fragment {
         getActivity().setTitle("Home");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        OpenWeatherMapHelper helper = new OpenWeatherMapHelper(getString(R.string.OPEN_WEATHER_MAP_API_KEY));
-        helper.setUnits(Units.METRIC);
-        helper.setLang(Lang.ENGLISH);
-
-
-        location = new SimpleLocation(getActivity());
-
-        if (!location.hasLocationEnabled()){
-            //asking the user for permissions for location access
-            SimpleLocation.openSettings(getActivity());
-        }
-
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
-
+        DoLocation();
 
        //setting variable programmatically
         weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
@@ -93,32 +82,6 @@ public class HomeFragment extends Fragment {
         current_location = view.findViewById(R.id.textViewLocation);
         min_temp = view.findViewById(R.id.textViewMinTemp);
         max_temp = view.findViewById(R.id.textViewMaxTemp);
-
-                helper.getCurrentWeatherByGeoCoordinates(latitude, longitude, new CurrentWeatherCallback() {
-            @Override
-            public void onSuccess(CurrentWeather currentWeather) {
-
-                double temp_min = currentWeather.getMain().getTemp();
-                double temp_max = currentWeather.getMain().getTempMax();
-                String actualLocation = currentWeather.getName();
-
-
-                String temp_minim = String.valueOf(temp_min);
-                String temp_maxim = String.valueOf(temp_max);
-
-                current_location.setText(actualLocation);
-
-                //current_temp.setText((int) currentWeather.getMain().getTempMax());
-                min_temp.setText("Min Temp: " + temp_minim + "°C" );
-                max_temp.setText("Max Temp: " + temp_maxim + "°C" );
-            }
-
-            @Override
-            public void onFailure(Throwable throwable) {
-                Log.v(TAG, throwable.getMessage());
-
-            }
-        });
 
 
         mybranch = view.findViewById(R.id.card_branches);
@@ -131,7 +94,7 @@ public class HomeFragment extends Fragment {
         productive = view.findViewById(R.id.card_productive);
         my_acc = view.findViewById(R.id.card_myaccc);
 
-
+            WeatherProcessing();
 
         news.setOnClickListener(
                 new View.OnClickListener() {
@@ -314,7 +277,67 @@ public class HomeFragment extends Fragment {
         );
 
 
+
         return view;
+    }
+
+
+
+
+
+    private double[] DoLocation() {
+        location = new SimpleLocation(getActivity());
+
+        if (!location.hasLocationEnabled()){
+            //asking the user for permissions for location access
+            SimpleLocation.openSettings(getActivity());
+        }
+
+        double latitude = location.getLatitude();
+        double longitude = location.getLongitude();
+
+
+        return new double[]{latitude, longitude};
+    }
+
+    private void WeatherProcessing() {
+
+        OpenWeatherMapHelper helper = new OpenWeatherMapHelper(getString(R.string.OPEN_WEATHER_MAP_API_KEY));
+        helper.setUnits(Units.METRIC);
+        helper.setLang(Lang.ENGLISH);
+
+        double[] coordinates = DoLocation();
+
+        latitude = coordinates[0];
+        longitude = coordinates[1];
+
+
+
+        helper.getCurrentWeatherByGeoCoordinates(latitude, longitude, new CurrentWeatherCallback() {
+            @Override
+            public void onSuccess(CurrentWeather currentWeather) {
+
+                double temp_min = currentWeather.getMain().getTemp();
+                double temp_max = currentWeather.getMain().getTempMax();
+                String actualLocation = currentWeather.getName();
+
+
+                String temp_minim = String.valueOf(temp_min);
+                String temp_maxim = String.valueOf(temp_max);
+
+                current_location.setText(actualLocation);
+
+                //current_temp.setText((int) currentWeather.getMain().getTempMax());
+                min_temp.setText("Min Temp: " + temp_minim + "°C" );
+                max_temp.setText("Max Temp: " + temp_maxim + "°C" );
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                Log.v(TAG, throwable.getMessage());
+
+            }
+        });
     }
 
 }

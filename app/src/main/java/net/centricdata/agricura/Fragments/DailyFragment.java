@@ -14,7 +14,6 @@ import net.centricdata.agricura.Weather.DayForecastObject;
 public class DailyFragment extends Fragment {
 
     private DayForecastObject dayForecastObject;
-    private ForecastFragment.OnFragmentInteractionListener mListener;
 
     public DailyFragment() {
         // Required empty public constructor
