@@ -125,7 +125,7 @@ public class WeatherFragment<view> extends Fragment {
                 double avg_temp = currentWeather.getMain().getTemp();
                 String tempAvg = String.valueOf(avg_temp);
                 showCurrentTemp.setText("Current Temp is: " + tempAvg + "°C" );
-                weatherIcon.setImageResource(R.drawable.sun_icon);
+                weatherIcon.setImageResource(R.drawable.light_rain);
 
             }
 
