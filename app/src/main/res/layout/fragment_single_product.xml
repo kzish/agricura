@@ -16,9 +16,9 @@
         <ImageView
             android:id="@+id/imgProduct"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="130dp"
             android:layout_marginLeft="@dimen/common_20_dp"
-            android:layout_marginTop="@dimen/common_20_dp"
+            android:layout_marginTop="@dimen/common_10_dp"
             android:layout_marginRight="@dimen/common_20_dp"
             android:src="@drawable/insecticide" />
 
@@ -29,13 +29,13 @@
             android:layout_gravity="center_horizontal"
             android:text="Acephate 75%"
             android:textColor="@android:color/black"
-            android:textSize="28sp"
-            android:layout_marginTop="@dimen/common_20_dp"/>
+            android:textSize="24sp"
+            android:layout_marginTop="@dimen/common_10_dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/common_20_dp"
-            android:layout_marginTop="@dimen/common_20_dp"
+            android:layout_marginTop="@dimen/common_10_dp"
             android:layout_marginRight="@dimen/common_20_dp">
 
 
@@ -47,17 +47,17 @@
 
                 android:layout_alignParentBottom="false"
                 android:layout_marginLeft="150dp"
-                android:layout_marginTop="@dimen/common_20_dp"
+                android:layout_marginTop="@dimen/common_10_dp"
                 android:layout_marginRight="0dp"
                 android:fontFamily="sans-serif-black"
                 android:text="500g, 1kg"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/txtView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/common_20_dp"
+                android:layout_marginTop="@dimen/common_10_dp"
                 android:text="Quantities"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/common_20_dp"
-            android:layout_marginTop="@dimen/common_20_dp"
+            android:layout_marginTop="@dimen/common_10_dp"
             android:layout_marginRight="@dimen/common_20_dp">
 
 
@@ -78,7 +78,8 @@
                 android:id="@+id/txtDesc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/common_20_dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
                 android:text="Description"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
@@ -93,12 +94,12 @@
 
                 android:layout_alignParentBottom="false"
                 android:layout_marginLeft="150dp"
-                android:layout_marginTop="@dimen/common_20_dp"
+                android:layout_marginTop="@dimen/common_10_dp"
                 android:layout_marginRight="0dp"
                 android:fontFamily="sans-serif-black"
                 android:maxWidth="250dp"
                 android:text="Contact and systemic for the control of various pests in various crops "
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
 
 
@@ -140,9 +141,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/common_20_dp"
-                android:layout_marginTop="@dimen/common_20_dp"
+                android:layout_marginTop="@dimen/common_10_dp"
                 android:layout_marginRight="@dimen/common_20_dp"
-                android:layout_marginBottom="@dimen/common_20_dp"
+                android:layout_marginBottom="@dimen/common_10_dp"
                 android:background="@color/colorPrimary"
                 android:text="Buy Now(Phase 2)"
                 android:textColor="@color/white" />

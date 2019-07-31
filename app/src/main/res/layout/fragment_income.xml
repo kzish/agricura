@@ -128,7 +128,7 @@
                 </RelativeLayout>
 
                 <ImageButton
-                    android:id="@+id/imageButtonFullIncome"
+                    android:id="@+id/imageButtonFullIncome2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

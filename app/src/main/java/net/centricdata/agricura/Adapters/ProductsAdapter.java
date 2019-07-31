@@ -3,18 +3,22 @@ package net.centricdata.agricura.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import net.centricdata.agricura.Fragments.SingleProductFragment;
 import net.centricdata.agricura.Models.Products;
@@ -26,6 +30,8 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHolder> {
     private List<Products> mproducts;
     private LayoutInflater mInflater;
+    private ImageView prodImage;
+    private Context mcontext;
 
     public ProductsAdapter(ArrayList<Products> products){
 
@@ -39,33 +45,28 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
 
         Context context= viewGroup.getContext();
+        mcontext=context;
         mInflater= LayoutInflater.from(context);
         final View view = mInflater.inflate(R.layout.row_products, viewGroup, false);
+        prodImage= (ImageView) view.findViewById(R.id.imgProd);
 
 
         final ViewHolder holder = new ViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
                 //int position = holder.getAdapterPosition();
                 //Products selectedProduct= mproducts.get(position);
                 //Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 //intent.putExtra("Products", selectedProduct);
                 //view.getContext().startActivity(intent);
-=======
-=======
->>>>>>> Stashed changes
                 int position = holder.getAdapterPosition();
                 Products selectedProduct= mproducts.get(position);
                 Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 intent.putExtra("Products", selectedProduct);
                 view.getContext().startActivity(intent);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
             }
         });
         return new ViewHolder(view);
@@ -80,6 +81,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         viewHolder.prodNameTextView.setText((mproducts.get(i).getProdName()));
         viewHolder.prodDescriptionTextView.setText((mproducts.get(i).getProdDescription()));
 
+        String uri= "android.resource://net.centricdata.agricura/drawable/"+mproducts.get(i).getProdCategory().toLowerCase().replaceAll("\\s+","");
+        Picasso.with(mcontext).load(uri).into(prodImage);
+
+
         viewHolder.prodCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +97,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 bundle.putString("pname", mproducts.get(i).prodName);
                 bundle.putString("pQuantities", mproducts.get(i).prodQuantities);
                 bundle.putString("pDescription", mproducts.get(i).prodDescription);
+                bundle.putString("pCategory", mproducts.get(i).prodCategory);
 
                 Log.e("proName", mproducts.get(i).prodName);
                 fragment.setArguments(bundle);

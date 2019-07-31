@@ -1,26 +1,26 @@
 package net.centricdata.agricura.Adapters;
 
 import android.content.Context;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
 import net.centricdata.agricura.Fragments.ProductsFragment;
 import net.centricdata.agricura.Models.ProductCategories;
-<<<<<<< HEAD
 import net.centricdata.agricura.Models.Products;
-import net.centricdata.agricura.Models.SalesTeam;
-=======
->>>>>>> 711e6de00c9b9681dea1a5ddddde8c77bb6dc8d9
 import net.centricdata.agricura.R;
 
 import java.util.ArrayList;
@@ -32,6 +32,8 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
     private LayoutInflater mInflater;
     private View.OnClickListener onClickListener;
     private String catName;
+    private Context mcontext;
+    private ImageView catImage;
 
     static String st;
     public static String get() {
@@ -41,17 +43,20 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
         return st;
     }
 
-    public ProductCategoriesAdapter(ArrayList<ProductCategories> productCategories) {
+    public ProductCategoriesAdapter( ArrayList<ProductCategories> productCategories) {
 
         mproductCategories= productCategories;
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context= viewGroup.getContext();
+        mcontext= context;
         mInflater= LayoutInflater.from(context);
         View view = mInflater.inflate(R.layout.row_product_category, viewGroup, false);
+        catImage= (ImageView) view.findViewById(R.id.imgCategory);
         return new ViewHolder(view);
     }
 
@@ -60,15 +65,14 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder,final int i) {
 
+
         ProductCategories productCategories= mproductCategories.get(i);
         TextView textView1= viewHolder.catNameTextView;
         textView1.setText(productCategories.getCatName());
         viewHolder.catNameTextView.setText((mproductCategories.get(i).getCatName()));
         viewHolder.catDescriptionTextView.setText((mproductCategories.get(i).getCatDescription()));
-
-        //zxc
-
-
+        String uri= "android.resource://net.centricdata.agricura/drawable/"+mproductCategories.get(i).getImageName().toLowerCase();
+        Picasso.with(mcontext).load(uri).into(catImage);
 
 
         viewHolder.cardViewProductCategories.setOnClickListener(new View.OnClickListener() {

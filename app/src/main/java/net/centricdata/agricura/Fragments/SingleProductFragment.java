@@ -3,15 +3,16 @@ package net.centricdata.agricura.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.squareup.picasso.Picasso;
 
@@ -35,19 +36,13 @@ public class SingleProductFragment extends Fragment {
     TextView productNameTextView;
     TextView productQuantitiesTextView;
     TextView productDescripionTextView;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
     String imageUri ="";
     ImageView productImage;
     //= "https://i.imgur.com/tGbaZCY.jpg";
     //ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
     //    Picasso.with(context).load(imageUri).into(ivBasicImage);
-=======
 
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
 
     public SingleProductFragment() {
         // Required empty public constructor
@@ -60,30 +55,22 @@ public class SingleProductFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_single_product, container, false);
 
+        String productCat;
         pTitle = getArguments().getString("pname");
         pQuantities= getArguments().getString("pQuantities");
         pDescription= getArguments().getString("pDescription");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+        productCat= getArguments().getString("pCategory").toLowerCase();
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+        ImageView singleProductImage= (ImageView) view.findViewById(R.id.imgProduct);
 
-
+        Picasso.with(getActivity().getApplicationContext()).load("android.resource://net.centricdata.agricura/drawable/"+productCat).into(singleProductImage);
 
         getActivity().setTitle(pTitle);
 
         //productName= view.findViewById(R.id.txtProductName).toString();
         productNameTextView= view.findViewById(R.id.txtProName);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         //productNameTextView= view.findViewWithTag("single_product_name_tag");
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
         productQuantitiesTextView=view.findViewById(R.id.txtProductQuatities);
         productDescripionTextView= view.findViewById(R.id.txtProductDescription);
         productNameTextView.setText(pTitle);
