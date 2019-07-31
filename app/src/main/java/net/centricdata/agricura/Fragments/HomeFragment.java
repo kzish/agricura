@@ -30,6 +30,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import im.delight.android.location.SimpleLocation;
+
 import static com.crashlytics.android.core.CrashlyticsCore.TAG;
 
 /**
@@ -37,6 +39,8 @@ import static com.crashlytics.android.core.CrashlyticsCore.TAG;
  */
 public class HomeFragment extends Fragment {
 
+    final double latitude = 0;
+    final double longitude = 0;
     CardView mybranch;
     CardView news;
     CardView calendar;
@@ -48,7 +52,8 @@ public class HomeFragment extends Fragment {
     CardView my_acc;
     CardView my_weather;
     ImageView weather_icon;
-    TextView current_location, min_temp, max_temp;
+    private TextView current_location, min_temp, max_temp;
+    private SimpleLocation location;
 
 
     public HomeFragment() {
@@ -68,27 +73,40 @@ public class HomeFragment extends Fragment {
         helper.setUnits(Units.METRIC);
         helper.setLang(Lang.ENGLISH);
 
-        
 
-        //setting variable programmatically
+        location = new SimpleLocation(getActivity());
+
+        if (!location.hasLocationEnabled()){
+            //asking the user for permissions for location access
+            SimpleLocation.openSettings(getActivity());
+        }
+
+        double latitude = location.getLatitude();
+        double longitude = location.getLongitude();
+
+
+       //setting variable programmatically
         weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
-        weather_icon.setImageResource(R.drawable.sun_icon);
+        weather_icon.setImageResource(R.drawable.sunny);
         weather_icon.setBackgroundColor(Color.TRANSPARENT);
 
         current_location = view.findViewById(R.id.textViewLocation);
         min_temp = view.findViewById(R.id.textViewMinTemp);
         max_temp = view.findViewById(R.id.textViewMaxTemp);
 
-        current_location.setText("Graniteside, Harare");
-
-        helper.getCurrentWeatherByCityName("Harare", new CurrentWeatherCallback() {
+                helper.getCurrentWeatherByGeoCoordinates(latitude, longitude, new CurrentWeatherCallback() {
             @Override
             public void onSuccess(CurrentWeather currentWeather) {
+
                 double temp_min = currentWeather.getMain().getTemp();
                 double temp_max = currentWeather.getMain().getTempMax();
+                String actualLocation = currentWeather.getName();
+
 
                 String temp_minim = String.valueOf(temp_min);
                 String temp_maxim = String.valueOf(temp_max);
+
+                current_location.setText(actualLocation);
 
                 //current_temp.setText((int) currentWeather.getMain().getTempMax());
                 min_temp.setText("Min Temp: " + temp_minim + "°C" );

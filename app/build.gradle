@@ -59,4 +59,5 @@ dependencies {
 
 
     implementation 'com.github.KwabenBerko:OpenWeatherMap-Android-Library:2.0.2'
+    implementation 'com.github.delight-im:Android-SimpleLocation:v1.0.1'
 }

@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import im.delight.android.location.SimpleLocation;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -59,10 +60,8 @@ import static java.time.LocalDate.now;
 
 public class WeatherFragment<view> extends Fragment {
 
-    static String latitude;
-    //= "-17.8581";
-    static String longitude;
-    //= "31.0553";
+    static double latitude = 0;
+    static double longitude = 0;
 
     public WeatherFragment() {
         // Required empty public constructor
@@ -76,13 +75,16 @@ public class WeatherFragment<view> extends Fragment {
     ImageView weatherIcon;
 
     SwipeRefreshLayout mySwipeWeather;
-    LocationManager locationManager;
+    private LocationManager locationManager;
+    private SimpleLocation location;
 
     private ArrayList<DayForecastObject> forecastList;
     private WeatherViewAdapter adapter;
-   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=890299&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+
+    //public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=890299&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
    // public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +" &lon=" +longitude +"&cnt=10&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +"&lon=" +longitude +"&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +93,8 @@ public class WeatherFragment<view> extends Fragment {
                 view = inflater.inflate(R.layout.fragment_weather,
                 container, false);
 
+        weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
+        weatherIcon.setImageResource(R.drawable.sunny);
 
         showWeather();
         showCurrentWeather();
@@ -119,13 +123,14 @@ public class WeatherFragment<view> extends Fragment {
         helper.setUnits(Units.METRIC);
         helper.setLang(Lang.ENGLISH);
 
-        helper.getCurrentWeatherByCityID("890299", new CurrentWeatherCallback() {
+        helper.getCurrentWeatherByGeoCoordinates(latitude, longitude, new CurrentWeatherCallback() {
             @Override
             public void onSuccess(CurrentWeather currentWeather) {
+
                 double avg_temp = currentWeather.getMain().getTemp();
                 String tempAvg = String.valueOf(avg_temp);
                 showCurrentTemp.setText("Current Temp is: " + tempAvg + "°C" );
-                weatherIcon.setImageResource(R.drawable.light_rain);
+                weatherIcon.setImageResource(R.drawable.sunny);
 
             }
 
@@ -146,8 +151,7 @@ public class WeatherFragment<view> extends Fragment {
 
         showCurrentTemp = view.findViewById(R.id.show_current_temp);
         showDateToday = view.findViewById(R.id.txtViewDate_today);
-
-        weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
+        //weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
 
         RecyclerView weekRecyclerView = (RecyclerView) view.findViewById(R.id.weekRecyclerView);
         weekRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -169,94 +173,16 @@ public class WeatherFragment<view> extends Fragment {
     }
 
     private void getCoordinates() {
+        location = new SimpleLocation(getActivity());
 
-
-        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-
-        //Check GPS is enabled or not
-
-        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-        {
-            //Method to enable GPS
-            OnGPS();
-        }
-        else
-        {
-            //GPS is already on
-
-            getLocation();
+        if (!location.hasLocationEnabled()){
+            //asking the user for permissions for location access
+            SimpleLocation.openSettings(getActivity());
         }
 
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
 
-
-    }
-
-
-    private void getLocation() {
-        //Check permissions again
-        if(ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) !=
-        PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) !=
-                PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-        }
-        else
-        {
-            Location LocationGps = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            Location LocationNetwork = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            Location LocationPassive = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-
-            if (LocationGps != null)
-            {
-                double lat = LocationGps.getLatitude();
-                double longi = LocationGps.getLongitude();
-
-                latitude = String.valueOf(lat);
-                longitude = String.valueOf(longi);
-
-                showLocationTxt.setText("Your current Location" + "\n" + "Latitude= " +latitude + "\n" + "Longitude= " +longitude);
-            }
-
-            else if (LocationNetwork != null)
-            {
-                double lat = LocationNetwork.getLatitude();
-                double longi = LocationNetwork.getLongitude();
-
-                latitude = String.valueOf(lat);
-                longitude = String.valueOf(longi);
-
-                showLocationTxt.setText("Your current Location" + "\n" + "Latitude= " +latitude + "\n" + "Longitude= " +longitude);
-            }
-
-            else if (LocationPassive != null)
-            {
-                double lat = LocationPassive.getLatitude();
-                double longi = LocationPassive.getLongitude();
-
-                latitude = String.valueOf(lat);
-                longitude = String.valueOf(longi);
-
-                showLocationTxt.setText("Your current Location" + "\n" + "Latitude= " +latitude + "\n" + "Longitude= " +longitude);
-            }
-
-            else
-            {
-                Toast.makeText(getActivity(),"Can't get your location", Toast.LENGTH_SHORT).show();
-            }
-
-            //That's all
-
-        }
-    }
-
-    private void OnGPS() {
-    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-    builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("YES", new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-        }
-    });
     }
 
     @Override
