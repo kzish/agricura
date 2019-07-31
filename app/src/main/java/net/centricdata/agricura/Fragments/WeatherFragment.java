@@ -163,6 +163,14 @@ public class WeatherFragment<view> extends Fragment {
         showDateToday.setText("Today is: " + myDate);
 
 
+        getCoordinates();
+
+    return view;
+    }
+
+    private void getCoordinates() {
+
+
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         //Check GPS is enabled or not
@@ -179,7 +187,8 @@ public class WeatherFragment<view> extends Fragment {
             getLocation();
         }
 
-    return view;
+
+
     }
 
 
