@@ -17,11 +17,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.kwabenaberko.openweathermaplib.constants.Lang;
 import com.kwabenaberko.openweathermaplib.constants.Units;
 import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
 import com.kwabenaberko.openweathermaplib.implementation.callbacks.CurrentWeatherCallback;
 import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import net.centricdata.agricura.R;
 
@@ -57,6 +60,9 @@ public class HomeFragment extends Fragment {
     ImageView weather_icon;
     private TextView current_location, min_temp, max_temp;
     private SimpleLocation location;
+    String myIcon;
+    View view;
+
 
 
     public HomeFragment() {
@@ -70,14 +76,16 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         getActivity().setTitle("Home");
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
 
         DoLocation();
 
        //setting variable programmatically
-        weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
-        weather_icon.setImageResource(R.drawable.sunny);
-        weather_icon.setBackgroundColor(Color.TRANSPARENT);
+        //weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
+        //weather_icon.setImageResource(R.drawable.sunny);
+        //weather_icon.setBackgroundColor(Color.TRANSPARENT);
+
+
 
         current_location = view.findViewById(R.id.textViewLocation);
         min_temp = view.findViewById(R.id.textViewMinTemp);
@@ -319,13 +327,24 @@ public class HomeFragment extends Fragment {
 
                 double temp_min = currentWeather.getMain().getTemp();
                 double temp_max = currentWeather.getMain().getTempMax();
-                String actualLocation = currentWeather.getName();
+                String actualLocation = currentWeather.getName() + ", " + currentWeather.getSys().getCountry();
+
+                weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
+                myIcon = currentWeather.getWeather().get(0).getIcon();
 
 
                 String temp_minim = String.valueOf(temp_min);
                 String temp_maxim = String.valueOf(temp_max);
 
                 current_location.setText(actualLocation);
+
+
+             //   ImageLoader imageLoader = ImageLoader.getInstance();
+             //   imageLoader.displayImage(imageUri, weather_icon);
+
+                String imageUri = "http://openweathermap.org/img/wn/"+ myIcon +"@2x.png";
+                Glide.with(getActivity()).load(imageUri).into(weather_icon);
+
 
                 //current_temp.setText((int) currentWeather.getMain().getTempMax());
                 min_temp.setText("Min Temp: " + temp_minim + "°C" );
