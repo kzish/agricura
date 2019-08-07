@@ -62,19 +62,21 @@ public class ProductsFragment extends Fragment {
 
         ArrayList<Products> products= new ArrayList<>();
 
-        products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
-        products.add(new Products("Insecticide","insecticide_image","Thiamethoxam 25WG","Systemic for the control of sap sucking pests in tobacco, tomatoes and various crops", "200g,500g" ));
-        products.add(new Products("Insecticide","insecticide_image","Aphid Kill","Emulsifiable concentrate, contact for the control of pests in various crops ", "100ml,200ml" ));
-        products.add(new Products("Insecticide","insecticide_image","Avaunt (Indoxacarb) 15SC","Contact for fast and broad-spectrum control of many worm pests and other insects ", "200ml,500ml" ));
-        products.add(new Products("Insecticide","insecticide_image","Acetamark ","Systemic for controlling sap sucking pests in cotton, tomatoes and various crops", "50g,100g, 500g" ));
-        products.add(new Products("Bait","insecticide_image","GF120 N BAIT ","Bait concentrate for use in horticultural crops, deciduos fruit trees, citrus ", "500ml" ));
-        products.add(new Products("Accaricide","accaricide","DICOFOL 18.5% EC","Emulsifiable concentrate contact organochlorine for controlling pests in various crops", "100ml,200ml, 5ltr" ));
+        //Insectidices
+        products.add(new Products("Insecticide","acephate","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
+        products.add(new Products("Insecticide","thiamethoxam","Thiamethoxam 25WG","Systemic for the control of sap sucking pests in tobacco, tomatoes and various crops", "200g,500g" ));
+        products.add(new Products("Insecticide","aphidkill","Aphid Kill","Emulsifiable concentrate, contact for the control of pests in various crops ", "100ml,200ml" ));
+        products.add(new Products("Insecticide","avaunt","Avaunt (Indoxacarb) 15SC","Contact for fast and broad-spectrum control of many worm pests and other insects ", "200ml,500ml" ));
+        products.add(new Products("Insecticide","acetar","Acetamark ","Systemic for controlling sap sucking pests in cotton, tomatoes and various crops", "50g,100g, 500g" ));
+        products.add(new Products("Bait","gf","GF120 N BAIT ","Bait concentrate for use in horticultural crops, deciduos fruit trees, citrus ", "500ml" ));
+        products.add(new Products("Accaricide","dicofol","DICOFOL 18.5% EC","Emulsifiable concentrate contact organochlorine for controlling pests in various crops", "100ml,200ml, 5ltr" ));
         products.add(new Products("Accaricide","insecticide_image","ABAMECTIN 18EC 100ML","Contact and translaminar insecticide/miticide for controlling pests in various crops", "100ml, 500ml" ));
         products.add(new Products("Accaricide","insecticide_image","DYNAMEC (ABAMECTIN) 18 EC ","Contact and translaminar insecticide/miticide for controlling pests in various crops", "500ml, 1ltr" ));
-        products.add(new Products("Mineral Oil","insecticide_image","ORCHEX ","Mineral oil targeting various pests in various fruit trees ", "200ml, 500ml, 5ltr" ));
-        products.add(new Products("Mineral Oil","insecticide_image","Mitac","An amitraz based accaricide for controlling pests in various crops", "100ml, 200ml, 500ml" ));
+        products.add(new Products("Mineral Oil","orchex","ORCHEX ","Mineral oil targeting various pests in various fruit trees ", "200ml, 500ml, 5ltr" ));
+        products.add(new Products("Mineral Oil","mitac","Mitac","An amitraz based accaricide for controlling pests in various crops", "100ml, 200ml, 500ml" ));
         products.add(new Products("Rodenticide","insecticide_image","SUPER RAT KILL ","An anticoagulant rodenticide used in and around human and animal dwellings ", "300g" ));
         products.add(new Products("Grain Protecterant","insecticide_image","ACTELLIC GOLD DUST ","Grain protectarant for use against storage pests", "200g" ));
+
         products.add(new Products("Grain Protecterant","insecticide_image","SHUMBA PLUS ","Grain protectarant for use against storage pests", "200g" ));
         products.add(new Products("Fungicide","insecticide_image","Bion 50WP","A selective, systemic compound used for the control of fungal and bacterial diseases", "60g" ));
         products.add(new Products("Fungicide","insecticide_image","Bravo","Contact, for the prevention of various diseases in various crops ", "200ml, 500ml, 1ltr, 5ltr" ));
@@ -98,6 +100,30 @@ public class ProductsFragment extends Fragment {
         products.add(new Products("Fertilizer","insecticide_image","AMMONIUM NITRE 34.5N ","A top dressing fertilizer for use in various crops such as maize, tomatoes, tobacco, cabbages","50kg"));
         products.add(new Products("Dose","insecticide_image","RAFAZOLE 1  ","A broad spectrum multipurpose anthelmintic ","500ml, 1ltr, 5ltr"));
         products.add(new Products("Dose","insecticide_image","ZEROFEN ","A broad spectrum multipurpose anthelmintic ","200ml, 1ltr"));
+
+        products.add(new Products("Grain Protecterant","agridust","Agridust ","An insecticide and two blended fungicides blended into a dust formulation ", "100g" ));
+        products.add(new Products("Vegidust","vegidust","Vegidust","An insecticide and two blended fungicides blended into a dust formulation ", "200g" ));
+        products.add(new Products("Biological Insecticide","biobit","Biobit HP WP(Dipel)","Biological insecticide for the control of various pests in various crops", "500g" ));
+        products.add(new Products("Insecticide","carbaryl","Carbaryl","A residual contact and stomach for use in gardens and arable fields", "200,375g,500g,1kg,25kg" ));
+        products.add(new Products("Insecticide","cartap","Cartap 50SP","Contact and systemic for the control of various pests in various crops", "1kg" ));
+        products.add(new Products("Insecticide","chlorpyrifos","Chlorpyrifos ","Organophosphorus contact for controlling various pests in various crops ", "200ml, 500ml, 1ltr, 5ltr, 20EA" ));
+        products.add(new Products("Insecticide","immidacloprid200sl","Imidacloprid 200SL ","Systemic neonicotinoid for the controll of various pests in various crops", "100ml, 200ml, 500ml, 1ltr, 5ltr" ));
+        products.add(new Products("Insecticide","loading","Confodor 70WP ","Systemic neonicotinoid for the controll of various pests in various crops", "30g" ));
+        products.add(new Products("Insecticide","loading","Decis Forte ","Pyrethroid, contact for controlling pests in various crops", "5ml, 250ml" ));
+        products.add(new Products("Insecticide","ddvp","DDVP 100%","Broad spectrum contact organophosphate for controlling various pests in various crops", "200ml,1ltr, 1ltr, 5ltr" ));
+        products.add(new Products("Insecticide","diazinon","Diazinon 30%","Organophosphorus contact for controlling various pests in various crops ", "100ml, 200ml, 20ltr" ));
+        products.add(new Products("Insecticide","dimethoate","Dimethoete 40%","Systemic organophosphate for the controll of sap sucking pests in varios crops ", "100ml, 200ml,5ltr,1tr, 20ltr" ));
+        products.add(new Products("Accaricide","abamectin","Abamectin 18EC","Contact and translaminar insecticide/miticide for controlling pests in various crops", "100ml, 200ml, 1ltr" ));
+        products.add(new Products("Accaride","abamectin","Dynamec (Abamectin) 18 EC  ","Contact and translaminar insecticide/miticide for controlling pests in various crops", "500ml,1ltr" ));
+        products.add(new Products("Insecticide","ecoterex","Eco Terex ","Granular, contact for the controll of pests in maize","2kg"));
+        products.add(new Products("Insecticide","kontakil","Kontakil 60%","Contact for the controll of various pests in various crops and for domestic use","100ml,200ml,500ml,5ltr"));
+        products.add(new Products("Insecticide","fenvalerate","Fenvalerate 20EC","Pyrethroid, contact for controlling pests in various crops", "200ml,500ml" ));
+        products.add(new Products("Insecticide","loading","Lambda","Pyrethroid, contact for controlling pests in various crops", "200ml, 500ml" ));
+        products.add(new Products("Insecticide","lannate","Lannate ","Contact and translaminar insecticide for controlling various insects in various crops", "100g, 1kg" ));
+        products.add(new Products("Insecticide","lannate","Icon 62.5","Pyrethroid, contact for controlling various insects for domectic purposes","62.5g"));
+        products.add(new Products("Insecticide","malathion50","Malathion 50%","Contact organophosphate for controlling various insects in various crops","200ml,500ml"));
+        products.add(new Products("Insecticide","malathion","Malathion","Contact organophosphate for controlling various insects in various crops","200g, 500,25kg"));
+        products.add(new Products("Insecticide","beltexpert","Belt","Highly effective contact and translaminar for controlling pests in various crops","4ml,50ml, 500ml,1ltr"));
 
         //products.add(new Products("Ola","insecticide_image","Msuzo 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" )); 45gm
 

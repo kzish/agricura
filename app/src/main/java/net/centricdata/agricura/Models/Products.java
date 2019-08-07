@@ -21,8 +21,11 @@ public class Products implements Parcelable {
     public ImageView prodImage;
     public String prodImageName;
 
-
     public String mselectedProduct= ProductCategoriesAdapter.get();
+
+
+
+
 
     public Products(String productCategory,String productImage, String productName, String productDescription, String productQuantities){
 
@@ -111,7 +114,7 @@ public class Products implements Parcelable {
 
         ArrayList<Products> products= new ArrayList<>();
 
-      products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
+        products.add(new Products("Insecticide","insecticide_image","Acephate 75%","Contact and systemic for the control of various pests in various crops", "500g,1kg" ));
         products.add(new Products("Insecticide","insecticide_image","Thiamethoxam 25WG","Systemic for the control of sap sucking pests in tobacco, tomatoes and various crops", "200g,500g" ));
         products.add(new Products("Insecticide","insecticide_image","Aphid Kill","Emulsifiable concentrate, contact for the control of pests in various crops ", "100ml,200ml" ));
         products.add(new Products("Insecticide","insecticide_image","Avaunt (Indoxacarb) 15SC","Contact for fast and broad-spectrum control of many worm pests and other insects ", "200ml,500ml" ));
@@ -150,13 +153,11 @@ public class Products implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
-
         dest.writeString(prodName);
         dest.writeString(prodCategory);
         dest.writeString(prodDescription);
         dest.writeString(prodQuantities);
         dest.writeString(prodImageName);
-
 
     }
 }

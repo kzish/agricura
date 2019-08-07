@@ -30,6 +30,7 @@ import net.centricdata.agricura.Fragments.AddEventFragment;
 import net.centricdata.agricura.Fragments.BranchesFragment;
 import net.centricdata.agricura.Fragments.CalendarFragment;
 import net.centricdata.agricura.Fragments.ContactUsFragment;
+import net.centricdata.agricura.Fragments.FacebookFragment;
 import net.centricdata.agricura.Fragments.HomeFragment;
 import net.centricdata.agricura.Fragments.IncomeStatementFragment;
 import net.centricdata.agricura.Fragments.MyAccountFragment;
@@ -307,6 +308,11 @@ public class MainActivity extends AppCompatActivity
 
                 fragment =new TwitterFragment();
                 break;
+            case  R.id.nav_facebook:
+                facebookDataWarning();
+
+                fragment =new FacebookFragment();
+                break;
             case  R.id.nav_whatsapp:
                 whatsappUs();
                 break;
@@ -326,6 +332,42 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void facebookDataWarning() {
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_twitter_warning, null);
+        CheckBox mCheckBox = mView.findViewById(R.id.checkBoxTwit);
+        mBuilder.setTitle("Data Warning!");
+        mBuilder.setMessage("Opening Facebook may consume your data");
+        mBuilder.setView(mView);
+        mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+        mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    storeDialogStatus(true);
+                }else{
+                    storeDialogStatus(false);
+                }
+            }
+        });
+
+        if(getDialogStatus()){
+            mDialog.hide();
+        }else{
+            mDialog.show();
+        }
+
     }
 
     private void dataWarning() {

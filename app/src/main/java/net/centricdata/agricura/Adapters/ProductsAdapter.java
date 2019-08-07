@@ -61,7 +61,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 //Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 //intent.putExtra("Products", selectedProduct);
                 //view.getContext().startActivity(intent);
-
                 int position = holder.getAdapterPosition();
                 Products selectedProduct= mproducts.get(position);
                 Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
@@ -69,10 +68,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 view.getContext().startActivity(intent);
 
             }
-
-      });
-
-
+        });
         return new ViewHolder(view);
     }
 
@@ -85,7 +81,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         viewHolder.prodNameTextView.setText((mproducts.get(i).getProdName()));
         viewHolder.prodDescriptionTextView.setText((mproducts.get(i).getProdDescription()));
 
-        String uri= "android.resource://net.centricdata.agricura/drawable/"+mproducts.get(i).getProdCategory().toLowerCase().replaceAll("\\s+","");
+        String uri= "android.resource://net.centricdata.agricura/drawable/"+mproducts.get(i).getProdImageName().toLowerCase().replaceAll("\\s+","");
         Picasso.with(mcontext).load(uri).into(prodImage);
 
 
@@ -102,6 +98,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 bundle.putString("pQuantities", mproducts.get(i).prodQuantities);
                 bundle.putString("pDescription", mproducts.get(i).prodDescription);
                 bundle.putString("pCategory", mproducts.get(i).prodCategory);
+                bundle.putString("pimage", mproducts.get(i).prodImageName);
 
                 Log.e("proName", mproducts.get(i).prodName);
                 fragment.setArguments(bundle);
