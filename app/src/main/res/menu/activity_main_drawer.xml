@@ -53,6 +53,10 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Twitter" />
             <item
+                android:id="@+id/nav_facebook"
+                android:icon="@drawable/facebookicon"
+                android:title="Facebook" />
+            <item
                 android:id="@+id/nav_whatsapp"
                 android:icon="@drawable/ic_whatsapp"
                 android:title="Whatsapp Us" />
