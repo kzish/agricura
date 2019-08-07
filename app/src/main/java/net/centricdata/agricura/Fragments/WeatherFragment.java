@@ -83,14 +83,14 @@ public class WeatherFragment<view> extends Fragment {
 
     //public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=890299&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
-   // public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +" &lon=" +longitude +"&cnt=10&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
-   public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +"&lon=" +longitude +"&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+    // public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +" &lon=" +longitude +"&cnt=10&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
+    public static final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat="+ latitude +"&lon=" +longitude +"&cnt=6&units=metric&APPID=5ce3af43784cd035386cb1fe3ee4bd60";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //final View
-                view = inflater.inflate(R.layout.fragment_weather,
+        view = inflater.inflate(R.layout.fragment_weather,
                 container, false);
 
         weatherIcon = view.findViewById(R.id.imgViewWeatherIconFr);
@@ -169,7 +169,7 @@ public class WeatherFragment<view> extends Fragment {
 
         getCoordinates();
 
-    return view;
+        return view;
     }
 
     private void getCoordinates() {

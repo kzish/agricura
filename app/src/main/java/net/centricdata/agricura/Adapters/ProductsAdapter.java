@@ -72,7 +72,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
       });
 
-   
+
         return new ViewHolder(view);
     }
 
