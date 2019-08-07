@@ -17,13 +17,13 @@ import net.centricdata.agricura.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductiveGuidelinesFragment extends Fragment {
+public class ProductionGuidelinesFragment extends Fragment {
 
     ListView pdfList;
     String [] item;
 
 
-    public ProductiveGuidelinesFragment() {
+    public ProductionGuidelinesFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +33,7 @@ public class ProductiveGuidelinesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         getActivity().setTitle("Crop Production Guidelines");
-        View view = inflater.inflate(R.layout.fragment_productive_guidelines, container, false);
+        View view = inflater.inflate(R.layout.fragment_production_guidelines, container, false);
 
         //PDFView p = view.findViewById(R.id.pdfView);
        // p.fromAsset("1HA-POTATOES-2017-2AGRICURA.pdf").load();
@@ -43,7 +43,7 @@ public class ProductiveGuidelinesFragment extends Fragment {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 getActivity(),
-                R.layout.row_productiveguidlines,
+                R.layout.row_productionguidlines,
                 item
         );
 

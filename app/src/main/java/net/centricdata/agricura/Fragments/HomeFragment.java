@@ -1,11 +1,8 @@
 package net.centricdata.agricura.Fragments;
 
 
-import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
-import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.cardview.widget.CardView;
@@ -23,18 +20,8 @@ import com.kwabenaberko.openweathermaplib.constants.Units;
 import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
 import com.kwabenaberko.openweathermaplib.implementation.callbacks.CurrentWeatherCallback;
 import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import net.centricdata.agricura.R;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
 
 import im.delight.android.location.SimpleLocation;
 
@@ -53,7 +40,7 @@ public class HomeFragment extends Fragment {
     CardView our_products;
     CardView weather;
     CardView income_sta;
-    CardView productive;
+    CardView productionGuide;
     CardView sales;
     CardView my_acc;
     CardView my_weather;
@@ -99,7 +86,7 @@ public class HomeFragment extends Fragment {
         weather = view.findViewById(R.id.nav_weather);
         income_sta = view.findViewById(R.id.card_income);
         my_weather = view.findViewById(R.id.card_weather);
-        productive = view.findViewById(R.id.card_productive);
+        productionGuide = view.findViewById(R.id.card_production);
         my_acc = view.findViewById(R.id.card_myaccc);
 
             WeatherProcessing();
@@ -158,13 +145,13 @@ public class HomeFragment extends Fragment {
                 }
         );
 
-        productive.setOnClickListener(
+        productionGuide.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Bundle bundle = new Bundle();
 
-                        Fragment fragment = new ProductiveGuidelinesFragment();
+                        Fragment fragment = new ProductionGuidelinesFragment();
 
                         fragment.setArguments(bundle);
 

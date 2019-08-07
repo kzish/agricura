@@ -37,7 +37,7 @@ import net.centricdata.agricura.Fragments.MyAccountFragment;
 import net.centricdata.agricura.Fragments.NewsFragment;
 import net.centricdata.agricura.Fragments.ProductCategoriesFragment;
 import net.centricdata.agricura.Fragments.ProductDiseaseFragment;
-import net.centricdata.agricura.Fragments.ProductiveGuidelinesFragment;
+import net.centricdata.agricura.Fragments.ProductionGuidelinesFragment;
 import net.centricdata.agricura.Fragments.SingleProductFragment;
 import net.centricdata.agricura.Fragments.TwitterFragment;
 import net.centricdata.agricura.Fragments.WeatherFragment;
@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity
                 fragment =new SalesTeamFragment();
                 break;*/
             case  R.id.nav_productive:
-                fragment =new ProductiveGuidelinesFragment();
+                fragment =new ProductionGuidelinesFragment();
                 break;
             case  R.id.nav_calender:
                 fragment =new CalendarFragment();
