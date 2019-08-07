@@ -4,6 +4,7 @@ package net.centricdata.agricura.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import net.centricdata.agricura.R;
 public class FacebookFragment extends Fragment {
 
     private WebView webView;
+    private View view;
+    private SwipeRefreshLayout myFacebookFeedSwipe;
 
     public FacebookFragment() {
         // Required empty public constructor
@@ -29,12 +32,33 @@ public class FacebookFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_facebook, container, false);
+        view = inflater.inflate(R.layout.fragment_facebook, container, false);
+        getActivity().setTitle("Agricura Facebook");
+
+        fetchFacebookFeed();
+        myFacebookFeedSwipe = view.findViewById(R.id.facebook_refresh_layout);
+        myFacebookFeedSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchFacebookFeed();
+            }
+        });
+
+        if (myFacebookFeedSwipe.isRefreshing()){
+            myFacebookFeedSwipe.setRefreshing(false);
+        }
+
+        return view;
+    }
+
+    private void fetchFacebookFeed() {
         webView = (WebView) view.findViewById(R.id.facebookWebView);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("http://www.facebook.com/AgricuraZim");
-        return view;
+
+        myFacebookFeedSwipe = view.findViewById(R.id.facebook_refresh_layout);
+        myFacebookFeedSwipe.setRefreshing(false);
     }
 
 }

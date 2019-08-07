@@ -169,6 +169,8 @@ public class WeatherFragment<view> extends Fragment {
 
         getCoordinates();
 
+        mySwipeWeather = view.findViewById(R.id.weekly_refresh_layout);
+        mySwipeWeather.setRefreshing(false);
         return view;
     }
 
