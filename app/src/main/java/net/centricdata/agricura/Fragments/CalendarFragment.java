@@ -64,17 +64,13 @@ public class CalendarFragment extends Fragment{
 
         customCalendar = view.findViewById(R.id.customCalendar);
 
-        String[] arr = {"2019-07-10", "2019-07-11", "2019-07-15", "2019-07-16", "2019-07-26", "2019-07-25"};
+        String[] arr = {"2019-08-10", "2019-08-11", "2019-08-15", "2019-08-16", "2019-08-26", "2019-08-25"};
         for (int i = 0; i < arr.length; i++) {
             int eventCount = 3;
             customCalendar.addAnEvent(arr[i], eventCount, getEventDataList(eventCount));
             //customCalendar.setBottom(3);
 
-
         }
-
-
-
 
         return view;
     }
