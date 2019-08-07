@@ -61,6 +61,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 //Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
                 //intent.putExtra("Products", selectedProduct);
                 //view.getContext().startActivity(intent);
+
                 int position = holder.getAdapterPosition();
                 Products selectedProduct= mproducts.get(position);
                 Intent intent= new Intent(v.getContext(), SingleProductFragment.class);
@@ -68,7 +69,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 view.getContext().startActivity(intent);
 
             }
-        });
+
+      });
+
+   
         return new ViewHolder(view);
     }
 

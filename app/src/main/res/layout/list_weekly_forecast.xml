@@ -8,12 +8,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@color/backgroundcalaz">
 
         <TextView
             android:id="@+id/dt"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -24,10 +26,16 @@
             android:layout_below="@+id/dt"/>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tVDescription"
+            android:layout_below="@+id/main"/>
+
+        <TextView
             android:id="@+id/maxTemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/main"/>
+            android:layout_below="@+id/tVDescription"/>
 
         <TextView
             android:id="@+id/minTemp"

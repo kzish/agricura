@@ -36,7 +36,6 @@ public class SingleProductFragment extends Fragment {
     TextView productNameTextView;
     TextView productQuantitiesTextView;
     TextView productDescripionTextView;
-
     String imageUri ="";
     ImageView productImage;
     //= "https://i.imgur.com/tGbaZCY.jpg";
@@ -69,8 +68,8 @@ public class SingleProductFragment extends Fragment {
 
         //productName= view.findViewById(R.id.txtProductName).toString();
         productNameTextView= view.findViewById(R.id.txtProName);
-        //productNameTextView= view.findViewWithTag("single_product_name_tag");
 
+        //productNameTextView= view.findViewWithTag("single_product_name_tag");
         productQuantitiesTextView=view.findViewById(R.id.txtProductQuatities);
         productDescripionTextView= view.findViewById(R.id.txtProductDescription);
         productNameTextView.setText(pTitle);

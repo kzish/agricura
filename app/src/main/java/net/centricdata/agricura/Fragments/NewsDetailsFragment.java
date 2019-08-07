@@ -1,11 +1,16 @@
 package net.centricdata.agricura.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import net.centricdata.agricura.R;
 
@@ -14,7 +19,11 @@ import net.centricdata.agricura.R;
  */
 public class NewsDetailsFragment extends Fragment {
 
-    private String newsHeadlines;
+    private String newsHeadlines, newsDetails, newsUrl;
+
+    ImageView newsPic;
+    TextView headLines, story;
+    Context context;
 
 
     public NewsDetailsFragment() {
@@ -28,9 +37,26 @@ public class NewsDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_news_details, container, false);
 
-        newsHeadlines = getArguments().getString("branchID");
+        newsHeadlines = getArguments().getString("newzHead");
+        newsDetails = getArguments().getString("newzDet");
+        newsUrl = getArguments().getString("newzImg");
 
         getActivity().setTitle(newsHeadlines);
+
+
+        newsPic = view.findViewById(R.id.imgNews);
+        headLines = view.findViewById(R.id.txtHeadline);
+        story = view.findViewById(R.id.txtStory);
+
+
+        story.setText(newsDetails);
+        headLines.setText(newsHeadlines);
+        Picasso.with(context)
+                .load(newsUrl)
+                .fit()
+                .into(newsPic);
+
+
 
 
         return view;

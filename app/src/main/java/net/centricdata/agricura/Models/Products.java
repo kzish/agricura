@@ -21,11 +21,8 @@ public class Products implements Parcelable {
     public ImageView prodImage;
     public String prodImageName;
 
+
     public String mselectedProduct= ProductCategoriesAdapter.get();
-
-
-
-
 
     public Products(String productCategory,String productImage, String productName, String productDescription, String productQuantities){
 
@@ -153,11 +150,13 @@ public class Products implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
+
         dest.writeString(prodName);
         dest.writeString(prodCategory);
         dest.writeString(prodDescription);
         dest.writeString(prodQuantities);
         dest.writeString(prodImageName);
+
 
     }
 }

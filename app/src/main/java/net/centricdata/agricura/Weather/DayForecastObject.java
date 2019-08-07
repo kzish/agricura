@@ -10,6 +10,15 @@ public class DayForecastObject implements Serializable{
     private int min;
     private int speed;
     private int humidity;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getDt() {
         return dt;

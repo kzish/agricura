@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,33 +16,65 @@
         <TextView
             android:layout_margin="5dp"
             android:text="Weather Forecast for Agricura"
+            android:textSize="14dp"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_margin="5dp"
-            android:text="Your Location Coordinates"
+            android:text="Today's Weather"
             android:hint="location"
-            android:textSize="10dp"
-            android:id="@+id/show_location"
+            android:textSize="14sp"
+            android:id="@+id/txtViewDate_today"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/getLocation"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+        <ImageView
+            android:id="@+id/imgViewWeatherIconFr"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/sunny"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--tools:src="@tools:sample/avatars" -->
+
+        <TextView
+            android:layout_margin="5dp"
+            android:text="18\'"
+            android:hint="location"
+            android:textSize="12dp"
+            android:id="@+id/show_current_temp"
             android:gravity="center_horizontal"
-            android:text="@string/getLocation"
-            android:textSize="10dp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/weekRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="636dp" />
+        </ScrollView>
 
+        <TextView
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:id="@+id/textViewErrorShow"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

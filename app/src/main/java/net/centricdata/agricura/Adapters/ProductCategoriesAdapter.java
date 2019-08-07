@@ -15,7 +15,6 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
 
 import net.centricdata.agricura.Fragments.ProductsFragment;
@@ -95,10 +94,6 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
             }
 
         });
-
-
-
-
 
 
 

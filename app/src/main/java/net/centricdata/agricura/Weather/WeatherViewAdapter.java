@@ -35,6 +35,7 @@ public class WeatherViewAdapter extends RecyclerView.Adapter<WeatherViewAdapter.
 
             holder.dateTV.setText(currentObj.getDt());
             holder.weatherDescriptionTV.setText(currentObj.getMain());
+            holder.descriptionWeather.setText(currentObj.getDescription());
             holder.maxTempTV.setText("MAX: " + currentObj.getMax() + " °C");
             holder.minTempTV.setText("MIN: " + currentObj.getMin() + " °C");
         }
@@ -52,15 +53,17 @@ public class WeatherViewAdapter extends RecyclerView.Adapter<WeatherViewAdapter.
         TextView weatherDescriptionTV;
         TextView maxTempTV;
         TextView minTempTV;
+        TextView descriptionWeather;
 
         WeatherViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            dateTV = (TextView) itemView.findViewById(R.id.dt);
-            weatherDescriptionTV = (TextView) itemView.findViewById(R.id.main);
-            maxTempTV = (TextView) itemView.findViewById(R.id.maxTemp);
-            minTempTV = (TextView) itemView.findViewById(R.id.minTemp);
+            dateTV = itemView.findViewById(R.id.dt);
+            weatherDescriptionTV = itemView.findViewById(R.id.main);
+            maxTempTV = itemView.findViewById(R.id.maxTemp);
+            minTempTV = itemView.findViewById(R.id.minTemp);
+            descriptionWeather = itemView.findViewById(R.id.tVDescription);
         }
 
         @Override

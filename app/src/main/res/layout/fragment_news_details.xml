@@ -8,30 +8,41 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imgNews"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:srcCompat="@mipmap/logo_agricura" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtHeadline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Headline Headline"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            <ImageView
+                android:id="@+id/imgNews"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:srcCompat="@mipmap/logo_agricura" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="News Content Here" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtHeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Headline Headline"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
+
+            <TextView
+                android:id="@+id/txtStory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="News Content Here"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 </LinearLayout>
