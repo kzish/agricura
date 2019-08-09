@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -82,22 +83,28 @@ public class ContactUsFragment extends Fragment {
         final String s = subject.getText().toString().trim();
         final String b = body.getText().toString().trim();
 
+        Log.d("values", n + t + e + s + b );
 
-        StringRequest putRequest = new StringRequest(Request.Method.PUT, urlPost,
+
+        StringRequest putRequest = new StringRequest(Request.Method.POST, urlPost,
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
 
-                        name.setText("");
-                        tel.setText("");
-                        email.setText("");
-                        subject.setText("");
-                        body.setText("");
-
-
                         // response
                         Log.d("Response", response);
+                        if (response.equals("OK")){
+                            Toast.makeText(getContext(), "Thank you for contacting us, our sales team will get back to you", Toast.LENGTH_LONG).show();
+
+                            name.setText("");
+                            tel.setText("");
+                            email.setText("");
+                            subject.setText("");
+                            body.setText("");
+                        } else {
+                            Toast.makeText(getContext(), "Something went wrong ..... Try again later", Toast.LENGTH_LONG).show();
+                        }
                     }
                 },
                 new Response.ErrorListener()

@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import net.centricdata.agricura.Fragments.Crops.Potatoes;
+import net.centricdata.agricura.Fragments.Crops.TomatoesFragment;
 import net.centricdata.agricura.R;
 
 /**
@@ -61,14 +63,29 @@ public class ProductionGuidelinesFragment extends Fragment {
                         switch (selectectedPdf){
 
                             case "1":
-                                pdfname = "1HA-TOMATOE-2017-1-AGRICURA.pdf";
+                                //pdfname = "1HA-TOMATOE-2017-1-AGRICURA.pdf";
 
-                                openPdfScreen(pdfname);
+                                //openPdfScreen(pdfname);
+                                Fragment fragment = new TomatoesFragment();
+
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.replace(R.id.content_main, fragment);
+                                ft.addToBackStack(null);
+                                ft.commit();
+
+
                                 break;
                             case "0":
-                                pdfname = "1HA-POTATOES-2017-2AGRICURA.pdf";
+                                //pdfname = "1HA-POTATOES-2017-2AGRICURA.pdf";
 
-                                openPdfScreen(pdfname);
+                                //openPdfScreen(pdfname);
+
+                                fragment = new Potatoes();
+
+                                ft = getFragmentManager().beginTransaction();
+                                ft.replace(R.id.content_main, fragment);
+                                ft.addToBackStack(null);
+                                ft.commit();
                                 break;
                             case "2":
                                 pdfname = "1HA-CABBAGES-2017-1-AGRICURA.pdf";

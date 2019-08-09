@@ -21,6 +21,7 @@ import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
 import com.kwabenaberko.openweathermaplib.implementation.callbacks.CurrentWeatherCallback;
 import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
 
+
 import net.centricdata.agricura.R;
 
 import im.delight.android.location.SimpleLocation;
