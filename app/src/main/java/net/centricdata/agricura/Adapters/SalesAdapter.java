@@ -46,6 +46,11 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.SalesViewHol
     }
 
     @Override
+    public long getItemId(int position) {
+        super.getItemId(position);
+        return position;
+    }
+    @Override
     public void onBindViewHolder(@NonNull SalesViewHolder salesViewHolder, final int position) {
 
         salesViewHolder.salesLoc.setText(salesTeams.get(position).getSalesBranch());

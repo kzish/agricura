@@ -63,7 +63,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         this.newsList = newsList;
     }
 
-
+    @Override
+    public long getItemId(int position) {
+        super.getItemId(position);
+        return position;
+    }
 
     @NonNull
     @Override

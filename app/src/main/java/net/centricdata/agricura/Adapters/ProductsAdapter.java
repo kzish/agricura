@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import net.centricdata.agricura.App;
 import net.centricdata.agricura.Fragments.SingleProductFragment;
 import net.centricdata.agricura.Models.Products;
 import net.centricdata.agricura.R;
@@ -32,6 +35,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     private LayoutInflater mInflater;
     private ImageView prodImage;
     private Context mcontext;
+
 
     public ProductsAdapter(ArrayList<Products> products){
 
@@ -49,6 +53,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         mInflater= LayoutInflater.from(context);
         final View view = mInflater.inflate(R.layout.row_products, viewGroup, false);
         prodImage= (ImageView) view.findViewById(R.id.imgProd);
+
 
 
         final ViewHolder holder = new ViewHolder(view);
@@ -73,6 +78,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     }
 
     @Override
+    public long getItemId(int position) {
+         super.getItemId(position);
+         return position;
+    }
+
+    @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
         final Products products= mproducts.get(i);
@@ -80,6 +91,14 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         textView1.setText(products.getProdName());
         viewHolder.prodNameTextView.setText((mproducts.get(i).getProdName()));
         viewHolder.prodDescriptionTextView.setText((mproducts.get(i).getProdDescription()));
+
+
+        if(i%2==0) {
+            viewHolder.bg_lay.setBackgroundColor(App.getInstance().getResources().getColor(R.color.verylightGreen));
+        }else
+        {
+            viewHolder.bg_lay.setBackgroundColor(App.getInstance().getResources().getColor(R.color.backgroundcalaz));
+        }
 
         String uri= "android.resource://net.centricdata.agricura/drawable/"+mproducts.get(i).getProdImageName().toLowerCase().replaceAll("\\s+","");
         Picasso.with(mcontext).load(uri).into(prodImage);
@@ -129,6 +148,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         public TextView prodCount;
         public TextView productsCount;
         public CardView prodCardView;
+        public LinearLayout bg_lay;
 
         public ViewHolder(View itemView) {
 
@@ -139,6 +159,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             //infoButton = (Button) itemView.findViewById(R.id.buttonInfo);
             //productsCount= (TextView) itemView.findViewById(R.id.txtProductCatCount);
             prodCardView = (CardView) itemView.findViewById(R.id.card_products);
+            bg_lay = (LinearLayout) itemView.findViewById(R.id.bg_lay);
 
 
         }

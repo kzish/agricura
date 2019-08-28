@@ -5,76 +5,73 @@
     android:id="@+id/card_product_categories"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="10dp"
     app:cardElevation="3dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <RelativeLayout
+    <LinearLayout
+        android:id="@+id/bg_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="1">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/txtProductCatName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="28dp"
-                android:layout_toEndOf="@+id/imgCategory"
-                android:layout_toRightOf="@id/imgCategory"
-                android:text="Insecticides"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                app:layout_constraintTop_toTopOf="parent"
-                />
-
-            <TextView
-                android:id="@+id/txtProductCatDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="64dp"
-                android:layout_toRightOf="@id/imgCategory"
-                android:text="Category Description"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/imgCategory"
-                app:layout_constraintTop_toBottomOf="@+id/txtProductCatName" />
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <ImageView
                 android:id="@+id/imgCategory"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/cat_1"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="6dp" />
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/cat_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.9"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtProductCatName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Insecticides"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtProductCatDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="for killing insects"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
 
+        </LinearLayout>
 
-
-        </RelativeLayout>
-
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="16dp"
-            android:text=">"
-            android:textColor="@color/colorPrimary"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="0.1"
+            app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp" />
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:alpha="0.5"
+        android:background="#dedede" />
 
 </androidx.cardview.widget.CardView>
 

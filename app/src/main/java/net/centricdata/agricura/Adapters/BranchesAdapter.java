@@ -2,18 +2,23 @@ package net.centricdata.agricura.Adapters;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import net.centricdata.agricura.App;
 import net.centricdata.agricura.Fragments.BranchDetailsFragment;
 import net.centricdata.agricura.Models.Branches;
 import net.centricdata.agricura.R;
@@ -39,8 +44,14 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
     @NonNull
     @Override
     public BranchesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_branches, viewGroup,false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_branches, viewGroup, false);
         return new BranchesViewHolder(v);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        super.getItemId(position);
+        return position;
     }
 
     @Override
@@ -49,6 +60,13 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
         branchesViewHolder.bAddress.setText(branches.get(position).getBranchAddress());
         branchesViewHolder.bName.setText(branches.get(position).getBranchName());
 
+        if(position%2==0) {
+            branchesViewHolder.bg_lay.setBackgroundColor(App.getInstance().getResources().getColor(R.color.verylightGreen));
+        }else
+        {
+            branchesViewHolder.bg_lay.setBackgroundColor(App.getInstance().getResources().getColor(R.color.backgroundcalaz));
+        }
+
         branchesViewHolder.cardViewBranch.setOnClickListener(
 
                 new View.OnClickListener() {
@@ -56,15 +74,14 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
                     public void onClick(View v) {
 
 
-
                         AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                         Log.e("position", String.valueOf(position));
-                        final  String branchKey = String.valueOf(position)  ;
+                        final String branchKey = String.valueOf(position);
                         Log.e("branchID", branchKey);
 
                         Bundle bundle = new Bundle();
-                        bundle.putString("branchID" ,branchKey );
+                        bundle.putString("branchID", branchKey);
                         //bundle.putDouble("lat");
 
                         Fragment fragment = new BranchDetailsFragment();
@@ -72,7 +89,7 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
                         fragment.setArguments(bundle);
 
 
-                        FragmentTransaction ft =  activity.getSupportFragmentManager().beginTransaction();
+                        FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.content_main, fragment);
                         ft.addToBackStack("branches");
                         ft.commit();
@@ -81,6 +98,7 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
         );
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -92,6 +110,7 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
         TextView bName;
         TextView bAddress;
         CardView cardViewBranch;
+        public LinearLayout bg_lay;
 
         public BranchesViewHolder(@NonNull View itemView) {
 
@@ -102,6 +121,8 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
             bName = myView.findViewById(R.id.txt_branchname);
             bAddress = myView.findViewById(R.id.txt_branchadd);
             cardViewBranch = myView.findViewById(R.id.card_branch);
+            bg_lay = (LinearLayout) myView.findViewById(R.id.bg_lay);
+
 
         }
 

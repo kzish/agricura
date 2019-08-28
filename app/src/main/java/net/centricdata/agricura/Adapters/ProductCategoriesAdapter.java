@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
+import net.centricdata.agricura.App;
 import net.centricdata.agricura.Fragments.ProductsFragment;
 import net.centricdata.agricura.Models.ProductCategories;
 import net.centricdata.agricura.Models.Products;
@@ -59,7 +61,11 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
         return new ViewHolder(view);
     }
 
-
+    @Override
+    public long getItemId(int position) {
+        super.getItemId(position);
+        return position;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder,final int i) {
@@ -74,6 +80,12 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
         Picasso.with(mcontext).load(uri).into(catImage);
 
 
+        if(i%2==0) {
+            viewHolder.bg_lay.setBackgroundColor(App.getInstance().getResources().getColor(R.color.verylightGreen));
+        }else
+        {
+            viewHolder.bg_lay.setBackgroundColor(App.getInstance().getResources().getColor(R.color.backgroundcalaz));
+        }
         viewHolder.cardViewProductCategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +126,7 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
         public TextView proCount;
         public TextView productsCount;
         public CardView cardViewProductCategories;
+        public LinearLayout bg_lay;
 
         public ViewHolder(View itemView) {
 
@@ -128,6 +141,7 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
             //infoButton = (Button) itemView.findViewById(R.id.buttonInfo);
             //productsCount= (TextView) itemView.findViewById(R.id.txtProductCatCount);
             cardViewProductCategories= (CardView) itemView.findViewById(R.id.card_product_categories);
+            bg_lay= (LinearLayout) itemView.findViewById(R.id.bg_lay);
 
 
         }
