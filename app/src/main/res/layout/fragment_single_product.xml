@@ -27,88 +27,77 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/common_10_dp"
             android:text="Acephate 75%"
             android:textColor="@android:color/black"
             android:textSize="24sp"
-            android:layout_marginTop="@dimen/common_10_dp"/>
-        <RelativeLayout
+            android:visibility="gone" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/common_20_dp"
-            android:layout_marginTop="@dimen/common_10_dp"
-            android:layout_marginRight="@dimen/common_20_dp">
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="@dimen/common_20_dp"
+            android:orientation="vertical">
 
-
-            <TextView
-                android:id="@+id/txtProductQuatities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-
-                android:layout_alignParentBottom="false"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="@dimen/common_10_dp"
-                android:layout_marginRight="0dp"
-                android:fontFamily="sans-serif-black"
-                android:text="500g, 1kg"
-                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/txtView20"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/common_10_dp"
                 android:text="Quantities"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:textSize="30dp" />
 
 
-        </RelativeLayout>
 
-        <RelativeLayout
+
+                <TextView
+                    android:id="@+id/txtProductQuatities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_10_dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="500g, 1kg"
+                    android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/common_20_dp"
-            android:layout_marginTop="@dimen/common_10_dp"
-            android:layout_marginRight="@dimen/common_20_dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/common_20_dp"
+            android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/txtDesc1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
                 android:text="Description"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
-                android:textSize="22sp" />
-
-
-            <TextView
-                android:id="@+id/txtProductDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-
-                android:layout_alignParentBottom="false"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="@dimen/common_10_dp"
-                android:layout_marginRight="0dp"
-                android:fontFamily="sans-serif-black"
-                android:maxWidth="250dp"
-                android:text="Contact and systemic for the control of various pests in various crops "
-                android:textSize="14sp" />
-
-
-
-        </RelativeLayout>
+                android:textSize="30dp" />
 
 
 
 
+                <TextView
+                    android:id="@+id/txtProductDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_10_dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Contact and systemic for the control of various pests in various crops "
+                    android:textSize="14sp" />
 
+
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -116,8 +105,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        >
+        android:layout_gravity="bottom">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -149,7 +137,6 @@
                 android:textColor="@color/white" />
 
         </LinearLayout>
-
 
 
     </RelativeLayout>
