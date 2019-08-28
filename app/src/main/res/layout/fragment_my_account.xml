@@ -1,149 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="false">
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.MyAccountFragment"
-    tools:showIn="@layout/fragment_my_account"
-    android:orientation="vertical"
-    android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/user_personalisation_to_save_and_update_you_crop_preferences"
-        android:textSize="20sp"/>
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        tools:context=".Fragments.MyAccountFragment"
+        tools:showIn="@layout/fragment_my_account">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Full Names"
-        android:layout_marginVertical="8dp">
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EditTextFullname"/>
+            android:gravity="center"
+            android:text="@string/user_personalisation_to_save_and_update_you_crop_preferences"
+            android:textSize="20sp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/mobile_number">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EditTextMobile"
-            android:inputType="phone"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginVertical="8dp"
+            android:hint="Full name">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:layout_marginVertical="8dp">
-        <EditText
+            <EditText
+                android:id="@+id/EditTextFullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EditTextEmail"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/mobile_number">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crop Preference Types:" />
+            <EditText
+                android:id="@+id/EditTextMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/chkMaize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Maize" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:hint="@string/email">
 
-    <CheckBox
-        android:id="@+id/chkSugarCane"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Sugar Cane" />
+            <EditText
+                android:id="@+id/EditTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/chkSoyaBean"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Soya Beans" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crop Preference Types:"
+            android:textColor="#000"
+            android:textSize="10dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold" />
 
-    <CheckBox
-        android:id="@+id/chkTobacco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Tobacco" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="0.9">
 
-    <CheckBox
-        android:id="@+id/chkTea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Tea" />
+            <CheckBox
+                android:id="@+id/chkMaize"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Maize" />
 
-    <CheckBox
-        android:id="@+id/chkMacademia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Macademia" />
+            <CheckBox
+                android:id="@+id/chkSugarCane"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Sugar Cane" />
 
-    <CheckBox
-        android:id="@+id/chkAvocado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Avocado" />
-
-    <CheckBox
-        android:id="@+id/chkOther"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="12dp"
-        android:text="Other" />
+            <CheckBox
+                android:id="@+id/chkSoyaBean"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Soya Beans" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="By setting preferences to populate your calendar with relevant events"
+        </LinearLayout>
 
-        android:clickable="true"
-        android:layout_marginVertical="32dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="0.9">
+
+            <CheckBox
+                android:id="@+id/chkTea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Tea" />
+
+            <CheckBox
+                android:id="@+id/chkMacademia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Macademia" />
+
+            <CheckBox
+                android:id="@+id/chkAvocado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Avocado" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="0.9">
+
+            <CheckBox
+                android:id="@+id/chkTobacco"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Tobacco" />
+
+            <CheckBox
+                android:id="@+id/chkOther"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Other" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="You will recieve calender events based on your preferences"
+            android:textColor="#000"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 
     <Button
+        android:layout_margin="10dp"
+        android:id="@+id/btn_saveFormDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Details"
+        android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
-        android:textColor="@color/tw__solid_white"
-        android:id="@+id/btn_saveFormDetails"/>
+        android:text="Save Details"
+        android:textColor="@color/tw__solid_white" />
 
 </LinearLayout>
-
-</ScrollView>
 
 
