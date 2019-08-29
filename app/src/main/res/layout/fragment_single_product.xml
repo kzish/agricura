@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/common_10_dp"
                     android:fontFamily="sans-serif-black"
-                    android:text="500g, 1kg"
+                    android:text="500g\n1kg"
                     android:textSize="14sp" />
 
 
