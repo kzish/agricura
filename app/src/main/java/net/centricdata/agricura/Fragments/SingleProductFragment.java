@@ -3,6 +3,7 @@ package net.centricdata.agricura.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,8 @@ public class SingleProductFragment extends Fragment {
         productQuantitiesTextView=view.findViewById(R.id.txtProductQuatities);
         productDescripionTextView= view.findViewById(R.id.txtProductDescription);
         productNameTextView.setText(pTitle);
-        productQuantitiesTextView.setText(pQuantities);
+        String product_quantities= TextUtils.join("\r\n", pQuantities.split(","));//put quantities in a new line
+        productQuantitiesTextView.setText(product_quantities);
         productDescripionTextView.setText(pDescription);
 
 
