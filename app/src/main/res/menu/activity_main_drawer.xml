@@ -54,7 +54,7 @@
                 android:title="Twitter" />
             <item
                 android:id="@+id/nav_facebook"
-                android:icon="@drawable/facebookicon"
+                android:icon="@drawable/ic_facebook"
                 android:title="Facebook" />
             <item
                 android:id="@+id/nav_whatsapp"
@@ -62,7 +62,7 @@
                 android:title="Whatsapp Us" />
             <item
                 android:id="@+id/nav_contact_us"
-                android:icon="@drawable/ic_whatsapp"
+                android:icon="@drawable/ic_local_phone_black_24dp"
                 android:title="Contact Us" />
         </menu>
     </item>
