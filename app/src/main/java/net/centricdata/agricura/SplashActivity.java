@@ -35,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
             }
             @Override
             public void onAnimationEnd(Animation arg0) {
-                Intent main =  new Intent(SplashActivity.this,MainActivity.class);
+                Intent main =  new Intent(SplashActivity.this,LoginActivity.class);
                 main.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(main);

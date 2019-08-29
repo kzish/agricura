@@ -65,7 +65,7 @@
     <string name="user_personalisation_to_save_and_update_you_crop_preferences">
         Register your details to enhance your experience with the app
     </string>
-    <string name="mobile_number">Mobile number</string>
+    <string name="mobile_number">Mobile number *</string>
     <string name="location">Harare</string>
     <string name="averageTemp">23\'</string>
     <string name="email">Email</string>

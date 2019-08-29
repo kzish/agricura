@@ -9,6 +9,8 @@ public class UserInfo {
     private String mobileNumber;
     private String email;
     private List[] cropPreferences;
+    public boolean registered;
+    public String address;
 
     public UserInfo() {
 
