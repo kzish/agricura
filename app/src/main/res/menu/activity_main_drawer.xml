@@ -10,7 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_branches"
-            android:icon="@drawable/ic_location_city_black_24dp"
+            android:icon="@drawable/ic_locations_"
             android:title="Branches" />
         <item
             android:id="@+id/nav_new"
@@ -18,7 +18,7 @@
             android:title="News" />
         <item
             android:id="@+id/nav_products"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_widgets_black_24dp"
             android:title="Products" />
         <item
             android:id="@+id/nav_calender"
