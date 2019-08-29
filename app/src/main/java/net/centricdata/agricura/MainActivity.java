@@ -300,9 +300,9 @@ public class MainActivity extends AppCompatActivity
             case  R.id.nav_products:
                 fragment =new ProductCategoriesFragment();
                 break;
-            case R.id.nav_my_acc:
+           /* case R.id.nav_my_acc:
                 fragment =new MyAccountFragment();
-                break;
+                break;*/
             case  R.id.nav_social_media:
                 dataWarning();
 

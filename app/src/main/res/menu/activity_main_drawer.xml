@@ -40,10 +40,10 @@
             android:id="@+id/nav_sales_team"
             android:icon="@drawable/ic_person_sales"
             android:title="Sales Team" />-->
-        <item
+        <!--<item
             android:id="@+id/nav_my_acc"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="My Account" />
+            android:title="My Account" />-->
     </group>
 
     <item android:title="Communicate">

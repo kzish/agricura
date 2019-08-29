@@ -33,6 +33,7 @@ import static com.crashlytics.android.core.CrashlyticsCore.TAG;
  */
 public class HomeFragment extends Fragment {
 
+    String tag="HomeFragment";
     double latitude = 0;
     double longitude = 0;
     CardView mybranch;
@@ -313,30 +314,35 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSuccess(CurrentWeather currentWeather) {
 
-                double temp_min = currentWeather.getMain().getTemp();
-                double temp_max = currentWeather.getMain().getTempMax();
-                String actualLocation = currentWeather.getName() + ", " + currentWeather.getSys().getCountry();
+                try {
+                    double temp_min = currentWeather.getMain().getTemp();
+                    double temp_max = currentWeather.getMain().getTempMax();
+                    String actualLocation = currentWeather.getName() + ", " + currentWeather.getSys().getCountry();
 
-                weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
-                myIcon = currentWeather.getWeather().get(0).getIcon();
-
-
-                String temp_minim = String.valueOf(temp_min);
-                String temp_maxim = String.valueOf(temp_max);
-
-                current_location.setText(actualLocation);
+                    weather_icon = view.findViewById(R.id.imgViewWeatherIcon);
+                    myIcon = currentWeather.getWeather().get(0).getIcon();
 
 
-             //   ImageLoader imageLoader = ImageLoader.getInstance();
-             //   imageLoader.displayImage(imageUri, weather_icon);
+                    String temp_minim = String.valueOf(temp_min);
+                    String temp_maxim = String.valueOf(temp_max);
 
-                String imageUri = "http://openweathermap.org/img/wn/"+ myIcon +"@2x.png";
-                Glide.with(getActivity()).load(imageUri).into(weather_icon);
+                    current_location.setText(actualLocation);
 
 
-                //current_temp.setText((int) currentWeather.getMain().getTempMax());
-                min_temp.setText("Min Temp: " + temp_minim + "°C" );
-                max_temp.setText("Max Temp: " + temp_maxim + "°C" );
+                    //   ImageLoader imageLoader = ImageLoader.getInstance();
+                    //   imageLoader.displayImage(imageUri, weather_icon);
+
+
+                    //current_temp.setText((int) currentWeather.getMain().getTempMax());
+                    min_temp.setText("Min Temp: " + temp_minim + "°C");
+                    max_temp.setText("Max Temp: " + temp_maxim + "°C");
+
+                    String imageUri = "http://openweathermap.org/img/wn/" + myIcon + "@2x.png";
+                    Glide.with(getActivity()).load(imageUri).into(weather_icon);
+                }catch (Exception ex)
+                {
+                    Log.e(tag,ex.getMessage());
+                }
             }
 
             @Override
