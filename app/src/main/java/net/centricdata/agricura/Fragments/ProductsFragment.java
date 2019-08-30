@@ -101,7 +101,7 @@ public class ProductsFragment extends Fragment {
         //
         products.add(new Products("Fungicides", "insecticide_image", "Bion 50WP", "A selective, systemic compound used for the control of fungal and bacterial diseases", "60g"));
         products.add(new Products("Fungicides", "insecticide_image", "Bravo", "Contact, for the prevention of various diseases in various crops ", "200ml, 500ml, 1ltr, 5ltr"));
-        products.add(new Products("Fumicides", "insecticide_image", "COPPER OXY 85WP", "Contact and systemic for the control of various pests in various crops", "200g, 500g"));
+        products.add(new Products("Fungicides", "insecticide_image", "COPPER OXY 85WP", "Contact and systemic for the control of various pests in various crops", "200g, 500g"));
         products.add(new Products("Fungicides", "insecticide_image", "LIME SULPHUR ", "For controlling pests and diseases ", "200ml, 500ml"));
         //
         products.add(new Products("Fertilizers", "insecticide_image", "COMPOUND D  ", "A basal dressing fertilizer for use in most cereal crops and other crops such as maize, sugar beans", "50kg"));
